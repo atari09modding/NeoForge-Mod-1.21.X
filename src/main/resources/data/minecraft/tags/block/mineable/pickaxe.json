@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "atarisnewmegamodproject:bismuth_block",
+    "atarisnewmegamodproject:bismuth_ore",
+    "atarisnewmegamodproject:bismuth_deepslate_ore"
+  ]
+}
