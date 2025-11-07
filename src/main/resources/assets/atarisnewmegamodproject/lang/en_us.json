@@ -1,11 +1,21 @@
 {
   "item.atarisnewmegamodproject.bismuth": "Bismuth",
   "item.atarisnewmegamodproject.raw_bismuth": "Raw Bismuth",
+  "item.atarisnewmegamodproject.chisel": "Chisel",
+  "item.atarisnewmegamodproject.radish": "Radish",
+  "item.atarisnewmegamodproject.frostfire_ice": "Frostfire Ice",
+  "item.atarisnewmegamodproject.starlight_ashes": "Starlight Ashes",
 
   "block.atarisnewmegamodproject.bismuth_block": "Block of Bismuth",
   "block.atarisnewmegamodproject.bismuth_ore": "Bismuth Ore",
   "block.atarisnewmegamodproject.bismuth_deepslate_ore": "Deepslate Bismuth Ore",
+  "block.atarisnewmegamodproject.magic_block": "Magic Block",
 
   "creativetab.atarisnewmegamodproject.bismuth_items": "Bismuth Items",
-  "creativetab.atarisnewmegamodproject.bismuth_blocks": "Bismuth Blocks"
+  "creativetab.atarisnewmegamodproject.bismuth_blocks": "Bismuth Blocks",
+
+  "tooltip.atarisnewmegamodproject.magic_block.tooltip": "This Block is very §l§dM§aA§sG§4I§eC§1A§2L§r",
+  "tooltip.atarisnewmegamodproject.chisel.shift_down": "This Item can chisel Blocks into Bricks",
+  "tooltip.atarisnewmegamodproject.chisel": "Press §eShift§r for more Information",
+  "tooltip.atarisnewmegamodproject.radish.tooltip": "Tastes really great!"
 }

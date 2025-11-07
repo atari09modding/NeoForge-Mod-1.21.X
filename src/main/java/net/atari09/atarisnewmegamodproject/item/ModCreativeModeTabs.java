@@ -1,7 +1,7 @@
-package net.atari09.mod.item;
+package net.atari09.atarisnewmegamodproject.item;
 
-import net.atari09.mod.AtariMod;
-import net.atari09.mod.block.ModBlocks;
+import net.atari09.atarisnewmegamodproject.AtariMod;
+import net.atari09.atarisnewmegamodproject.block.ModBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -23,6 +23,10 @@ public class ModCreativeModeTabs {
                     .displayItems((parameters, output) -> {
                         output.accept(ModItems.BISMUTH);
                         output.accept(ModItems.RAW_BISMUTH);
+                        output.accept(ModItems.CHISEL);
+                        output.accept(ModItems.RADISH);
+                        output.accept(ModItems.FROSTFIRE_ICE);
+                        output.accept(ModItems.STARLIGHT_ASHES);
                     })
                     .build());
     public static final Supplier<CreativeModeTab> BISMTUH_BLOCKS_TAB = CREATIVE_MODE_TAB.register("bismuth_blocks_tab",
@@ -33,6 +37,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.BISMUTH_BLOCK);
                         output.accept(ModBlocks.BISMUTH_ORE);
                         output.accept(ModBlocks.BISMUTH_DEEPSLATE_ORE);
+                        output.accept(ModBlocks.MAGIC_BLOCK);
                     })
                     .build());
 

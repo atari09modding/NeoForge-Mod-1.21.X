@@ -1,4 +1,4 @@
-package net.atari09.mod;
+package net.atari09.atarisnewmegamodproject;
 
 import java.util.List;
 

@@ -1,8 +1,8 @@
-package net.atari09.mod;
+package net.atari09.atarisnewmegamodproject;
 
-import net.atari09.mod.block.ModBlocks;
-import net.atari09.mod.item.ModCreativeModeTabs;
-import net.atari09.mod.item.ModItems;
+import net.atari09.atarisnewmegamodproject.block.ModBlocks;
+import net.atari09.atarisnewmegamodproject.item.ModCreativeModeTabs;
+import net.atari09.atarisnewmegamodproject.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import org.slf4j.Logger;
 

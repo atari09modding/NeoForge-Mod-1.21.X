@@ -1,7 +1,8 @@
-package net.atari09.mod.block;
+package net.atari09.atarisnewmegamodproject.block;
 
-import net.atari09.mod.AtariMod;
-import net.atari09.mod.item.ModItems;
+import net.atari09.atarisnewmegamodproject.AtariMod;
+import net.atari09.atarisnewmegamodproject.block.custom.MagicBlock;
+import net.atari09.atarisnewmegamodproject.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -32,6 +33,8 @@ public class ModBlocks {
             () -> new DropExperienceBlock(UniformInt.of(50,70),
                     BlockBehaviour.Properties.of()
                             .strength(4f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
+    public static final DeferredBlock<Block> MAGIC_BLOCK = registerBlock("magic_block",
+            () -> new MagicBlock(BlockBehaviour.Properties.of().strength(2f).noLootTable()));
 
 
     private static <T extends Block> DeferredBlock registerBlock(String name, Supplier<T> block) {
