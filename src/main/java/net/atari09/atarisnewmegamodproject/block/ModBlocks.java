@@ -1,6 +1,7 @@
 package net.atari09.atarisnewmegamodproject.block;
 
 import net.atari09.atarisnewmegamodproject.AtariMod;
+import net.atari09.atarisnewmegamodproject.block.custom.BismuthLampBlock;
 import net.atari09.atarisnewmegamodproject.block.custom.MagicBlock;
 import net.atari09.atarisnewmegamodproject.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -62,6 +63,10 @@ public class ModBlocks {
     public static final DeferredBlock<TrapDoorBlock> BISMUTH_TRAPDOOR = registerBlock("bismuth_trapdoor",
             ()-> new TrapDoorBlock(BlockSetType.IRON,
                     BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops().noOcclusion() ));
+
+    public static final DeferredBlock<Block> BISMUTH_LAMP = registerBlock("bismuth_lamp",
+            () -> new BismuthLampBlock(BlockBehaviour.Properties.of().strength(2f)
+                    .requiresCorrectToolForDrops().lightLevel(state -> state.getValue(BismuthLampBlock.CLICKED) ? 15 : 0)));
 
 
     private static <T extends Block> DeferredBlock registerBlock(String name, Supplier<T> block) {

@@ -2,6 +2,7 @@ package net.atari09.atarisnewmegamodproject.datagen;
 
 import net.atari09.atarisnewmegamodproject.AtariMod;
 import net.atari09.atarisnewmegamodproject.block.ModBlocks;
+import net.atari09.atarisnewmegamodproject.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
@@ -22,6 +23,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.BISMUTH_BLOCK.get())
                 .add(ModBlocks.BISMUTH_ORE.get())
+                .add(ModBlocks.BISMUTH_LAMP.get())
                 .add(ModBlocks.BISMUTH_DEEPSLATE_ORE.get());
 
         tag(BlockTags.NEEDS_IRON_TOOL)
@@ -33,5 +35,15 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.BISMUTH_FENCE.get())
                 .add(ModBlocks.BISMUTH_FENCE_GATE.get())
                 .add(ModBlocks.BISMUTH_WALL.get());
+
+        tag(ModTags.Blocks.NEEDS_BISMUTH_TOOL)
+                .add(ModBlocks.BISMUTH_LAMP.get())
+                .addTag(BlockTags.NEEDS_DIAMOND_TOOL);
+
+        tag(ModTags.Blocks.INCORRECT_FOR_BISMUTH_TOOL)
+                .addTag(BlockTags.INCORRECT_FOR_DIAMOND_TOOL)
+                .remove(ModTags.Blocks.NEEDS_BISMUTH_TOOL);
+
     }
+
 }

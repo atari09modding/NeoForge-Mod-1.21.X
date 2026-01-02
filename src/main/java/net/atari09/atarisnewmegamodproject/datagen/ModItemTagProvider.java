@@ -6,6 +6,7 @@ import net.atari09.atarisnewmegamodproject.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.ItemBasedSteering;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
@@ -28,5 +29,26 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(Items.STICK)
                 .add(Items.COMPASS);
 
+        tag(ItemTags.SWORDS)
+                .add(ModItems.BISMUTH_SWORD.get());
+
+        tag(ItemTags.PICKAXES)
+                .add(ModItems.BISMUTH_PICKAXE.get());
+
+        tag(ItemTags.SHOVELS)
+                .add(ModItems.BISMUTH_SHOVEL.get());
+
+        tag(ItemTags.AXES)
+                .add(ModItems.BISMUTH_AXE.get());
+
+        tag(ItemTags.HOES)
+                .add(ModItems.BISMUTH_HOE.get());
+
+        this.tag(ItemTags.TRIMMABLE_ARMOR)
+                .add(ModItems.BISMUTH_HELMET.get())
+                .add(ModItems.BISMUTH_CHESTPLATE.get())
+                .add(ModItems.BISMUTH_LEGGINGS.get())
+                .add(ModItems.BISMUTH_BOOTS.get());
     }
+
 }

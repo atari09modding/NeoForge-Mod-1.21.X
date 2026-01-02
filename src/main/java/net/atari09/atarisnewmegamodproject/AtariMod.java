@@ -1,6 +1,7 @@
 package net.atari09.atarisnewmegamodproject;
 
 import net.atari09.atarisnewmegamodproject.block.ModBlocks;
+import net.atari09.atarisnewmegamodproject.component.ModDataComponents;
 import net.atari09.atarisnewmegamodproject.item.ModCreativeModeTabs;
 import net.atari09.atarisnewmegamodproject.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -49,6 +50,8 @@ public class AtariMod {
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+
+        ModDataComponents.register(modEventBus);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
