@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "atarisnewmegamodproject:block/bismuth_slab"
+    },
+    "type=double": {
+      "model": "atarisnewmegamodproject:block/bismuth_block"
+    },
+    "type=top": {
+      "model": "atarisnewmegamodproject:block/bismuth_slab_top"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "values": {
+    "atarisnewmegamodproject:frostfire_ice": {
+      "burn_time": 400
+    },
+    "atarisnewmegamodproject:starlight_ashes": {
+      "burn_time": 1200
+    }
+  }
+}

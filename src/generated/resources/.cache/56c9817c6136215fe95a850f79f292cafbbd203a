@@ -1,0 +1,8 @@
+// 1.21.1	2026-01-09T17:52:36.4870374	Tags for minecraft:block mod id atarisnewmegamodproject
+d72f722c8aeb99894d00d061b3f004d8073421fb data/atarisnewmegamodproject/tags/block/incorrect_for_bismuth_tool.json
+c66921eb7258072247f21fa24ecc123b86a7e16c data/atarisnewmegamodproject/tags/block/needs_bismuth_tool.json
+24e41effeaaeff582ee714dcd8c7292ec80636ee data/minecraft/tags/block/fences.json
+2fbf8b95eda09a9a8069533016a316bf76f354e8 data/minecraft/tags/block/logs_that_burn.json
+ec5942907729cc2f9b95d5d15ccfbff18e805079 data/minecraft/tags/block/mineable/pickaxe.json
+c21bc2a57857154305fe37495f1bb4562ca0064b data/minecraft/tags/block/needs_diamond_tool.json
+43b5d031d2785a3a754764a3dfdc9ab8c341c21e data/minecraft/tags/block/needs_iron_tool.json

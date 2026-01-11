@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "atarisnewmegamodproject:block/bloodwood_log_top",
+    "side": "atarisnewmegamodproject:block/bloodwood_log"
+  }
+}

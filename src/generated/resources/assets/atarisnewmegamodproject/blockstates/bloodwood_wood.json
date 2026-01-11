@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "atarisnewmegamodproject:block/bloodwood_wood_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "atarisnewmegamodproject:block/bloodwood_wood"
+    },
+    "axis=z": {
+      "model": "atarisnewmegamodproject:block/bloodwood_wood_horizontal",
+      "x": 90
+    }
+  }
+}

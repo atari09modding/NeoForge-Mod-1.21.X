@@ -1,0 +1,9 @@
+{
+  "asset_name": "bismuth",
+  "description": {
+    "color": "#69D41E",
+    "translate": "trim_material.atarisnewmegamodproject.bismuth"
+  },
+  "ingredient": "atarisnewmegamodproject:bismuth",
+  "item_model_index": 0.5
+}

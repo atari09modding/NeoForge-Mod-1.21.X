@@ -1,0 +1,12 @@
+// 1.21.1	2026-01-09T17:52:36.5122378	Tags for minecraft:item mod id atarisnewmegamodproject
+d0b3f441d66ba56d14df50380ad8a0dedb6d4e1e data/atarisnewmegamodproject/tags/item/transformable_items.json
+4243ca86cfbdb889069010e7320e79bb0b69a62d data/minecraft/tags/item/axes.json
+99cf5bea49ed0e5928c57e0dde48d46914f4ad23 data/minecraft/tags/item/hoes.json
+2fbf8b95eda09a9a8069533016a316bf76f354e8 data/minecraft/tags/item/logs_that_burn.json
+b726487f8eef0c2d397053a51c97669cccc44237 data/minecraft/tags/item/pickaxes.json
+6280aaa05284f4566add5d545c349b83f526a7d8 data/minecraft/tags/item/planks.json
+a50d5d4a1d161be5bc1f201b4d8f439d4ad8cef2 data/minecraft/tags/item/shovels.json
+43c1a0550f5ad79e993eff88dca709a1a4a01ad7 data/minecraft/tags/item/swords.json
+955164e40fe1d1862fa82f83c711468033089c7f data/minecraft/tags/item/trimmable_armor.json
+0e9e7f05fcb3c1fecf1f4787cf119f1ac8c3c6b4 data/minecraft/tags/item/trim_materials.json
+a85ba778d712e983b25208b0d119c2b3fff23a8f data/minecraft/tags/item/trim_templates.json

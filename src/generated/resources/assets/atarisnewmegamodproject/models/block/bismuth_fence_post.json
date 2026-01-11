@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_post",
+  "textures": {
+    "texture": "atarisnewmegamodproject:block/bismuth_block"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "clicked=false": {
+      "model": "atarisnewmegamodproject:block/bismuth_lamp_off"
+    },
+    "clicked=true": {
+      "model": "atarisnewmegamodproject:block/bismuth_lamp_on"
+    }
+  }
+}

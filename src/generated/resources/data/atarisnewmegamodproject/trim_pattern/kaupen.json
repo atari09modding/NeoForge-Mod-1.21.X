@@ -1,0 +1,8 @@
+{
+  "asset_id": "atarisnewmegamodproject:kaupen",
+  "decal": false,
+  "description": {
+    "translate": "trim_pattern.atarisnewmegamodproject.kaupen"
+  },
+  "template_item": "atarisnewmegamodproject:kaupen_armor_trim_smithing_template"
+}

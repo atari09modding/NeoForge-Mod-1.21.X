@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button",
+  "textures": {
+    "texture": "atarisnewmegamodproject:block/bismuth_block"
+  }
+}

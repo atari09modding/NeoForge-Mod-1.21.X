@@ -1,0 +1,10 @@
+{
+  "values": {
+    "atarisnewmegamodproject:radish": {
+      "chance": 0.45
+    },
+    "atarisnewmegamodproject:radish_seeds": {
+      "chance": 0.25
+    }
+  }
+}
