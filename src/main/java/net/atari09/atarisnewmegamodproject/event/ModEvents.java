@@ -2,17 +2,33 @@ package net.atari09.atarisnewmegamodproject.event;
 
 import net.atari09.atarisnewmegamodproject.AtariMod;
 import net.atari09.atarisnewmegamodproject.item.custom.HammerItem;
+import net.atari09.atarisnewmegamodproject.potion.ModPotions;
+import net.minecraft.client.resources.sounds.Sound;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.animal.Sheep;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.PotionBrewing;
+import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.level.storage.loot.predicates.WeatherCheck;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.client.event.sound.SoundEvent;
+import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
+import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 
 import java.util.HashSet;
 import java.util.Set;
 
+import static org.apache.commons.lang3.BooleanUtils.and;
 
 
 @EventBusSubscriber(modid = AtariMod.MOD_ID)//, bus = EventBusSubscriber.Bus.GAME)
@@ -44,5 +60,24 @@ public class ModEvents {
                 HARVESTED_BLOCKS.remove(pos);
             }
         }
+    }
+
+    @SubscribeEvent
+    public static void livingDamage(LivingDamageEvent.Pre event){
+        if(event.getEntity() instanceof Sheep sheep && event.getSource().getDirectEntity() instanceof Player player){
+            if(player.getMainHandItem().getItem() == Items.END_ROD){
+                player.sendSystemMessage(Component.literal(player.getName().getString() + "just hit a sheep with an END ROD! YOU SICK FRICK!!!"));
+                sheep.addEffect(new MobEffectInstance(MobEffects.POISON, 600, 6));
+                player.getMainHandItem().shrink(1);
+                sheep.playSound(SoundEvents.ENDER_DRAGON_DEATH, 5 ,2);
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onBrewingRecipeRegister(RegisterBrewingRecipesEvent event){
+        PotionBrewing.Builder builder = event.getBuilder();
+
+        builder.addMix(Potions.AWKWARD, Items.SLIME_BALL, ModPotions.SLIMEY_POTION);
     }
 }

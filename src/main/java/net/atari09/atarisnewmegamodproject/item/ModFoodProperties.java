@@ -7,4 +7,6 @@ import net.minecraft.world.food.FoodProperties;
 public class ModFoodProperties {
     public static final FoodProperties RADISH = new FoodProperties.Builder().nutrition(3).saturationModifier(0.25f)
             .fast().effect(() -> new MobEffectInstance(MobEffects.HEALTH_BOOST, 200), 0.2f).build();
+
+    public static final FoodProperties GOJI_BERRY = new FoodProperties.Builder().nutrition(2).saturationModifier(0.15f).fast().build();
 }

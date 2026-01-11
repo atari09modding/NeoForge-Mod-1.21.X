@@ -1,14 +1,17 @@
 package net.atari09.atarisnewmegamodproject.item;
 
 import net.atari09.atarisnewmegamodproject.AtariMod;
-import net.atari09.atarisnewmegamodproject.block.custom.ModArmorItem;
+import net.atari09.atarisnewmegamodproject.block.ModBlocks;
+import net.atari09.atarisnewmegamodproject.item.custom.ModArmorItem;
 import net.atari09.atarisnewmegamodproject.item.custom.ChiselItem;
 import net.atari09.atarisnewmegamodproject.item.custom.FuelItem;
 import net.atari09.atarisnewmegamodproject.item.custom.HammerItem;
+import net.atari09.atarisnewmegamodproject.sound.ModSounds;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -77,6 +80,18 @@ public class ModItems {
 
     public static final DeferredItem<Item> KAUPEN_SMITHING_TEMPLATE = ITEMS.register("kaupen_armor_trim_smithing_template",
             ()->SmithingTemplateItem.createArmorTrimTemplate(ResourceLocation.fromNamespaceAndPath(AtariMod.MOD_ID, "kaupen")));
+
+    public static final DeferredItem<Item> KAUPEN_BOW = ITEMS.register("kaupen_bow",
+            () -> new BowItem(new Item.Properties().durability(5000)));
+
+    public static final  DeferredItem<Item> BAR_BRAWL_MUSIC_DISC = ITEMS.register("bar_brawl_music_disc",
+            ()-> new Item(new Item.Properties().jukeboxPlayable(ModSounds.BAR_BRAWL_KEY).stacksTo(1)));
+
+    public static final DeferredItem<Item> RADISH_SEEDS = ITEMS.register("radish_seeds",
+            ()-> new ItemNameBlockItem(ModBlocks.RADISH_CROP.get(), new Item.Properties()));
+
+    public static final DeferredItem<Item> GOJI_BERRIES = ITEMS.register("goji_berries",
+            () -> new ItemNameBlockItem(ModBlocks.GOJI_BERRY_BUSH.get(), new Item.Properties().food(ModFoodProperties.GOJI_BERRY)));
 
 
     public static void register(IEventBus eventBus){

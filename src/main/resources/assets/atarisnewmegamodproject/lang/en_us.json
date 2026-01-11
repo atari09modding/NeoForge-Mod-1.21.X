@@ -13,6 +13,14 @@
   "item.atarisnewmegamodproject.bismuth_hoe": "Bismuth Hoe",
   "item.atarisnewmegamodproject.bismuth_hammer": "Bismuth Hammer",
 
+  "item.atarisnewmegamodproject.kaupen_bow": "Kaupen Bow",
+
+  "item.atarisnewmegamodproject.radish_seeds": "Radish Seeds",
+  "item.atarisnewmegamodproject.goji_berries": "Goji Berries",
+
+  "item.atarisnewmegamodproject.bar_brawl_music_disc": "Bar Brawl Music Disc",
+  "item.atarisnewmegamodproject.bar_brawl_music_disc.desc": "Bryan Tech - Bar Brawl (CC0)",
+
   "item.atarisnewmegamodproject.bismuth_helmet": "Bismuth Helmet",
   "item.atarisnewmegamodproject.bismuth_chestplate": "Bismuth Chestplate",
   "item.atarisnewmegamodproject.bismuth_leggings": "Bismuth Leggings",
@@ -20,10 +28,23 @@
 
   "item.atarisnewmegamodproject.bismuth_horse_armor": "Bismuth Horse Armor",
 
+  "item.minecraft.potion.effect.atarisnewmegamodproject_slimey_potion" : "Slimey Potion",
+  "item.minecraft.splash_potion.effect.atarisnewmegamodproject_slimey_potion" : "Slimey Splash Potion",
+  "item.minecraft.lingering_potion.effect.atarisnewmegamodproject_slimey_potion" : "Slimey Lingering Potion",
+
   "block.atarisnewmegamodproject.bismuth_block": "Block of Bismuth",
   "block.atarisnewmegamodproject.bismuth_ore": "Bismuth Ore",
   "block.atarisnewmegamodproject.bismuth_deepslate_ore": "Deepslate Bismuth Ore",
+  "block.atarisnewmegamodproject.bismuth_end_ore": "§dEnder§r Bismuth Ore",
+  "block.atarisnewmegamodproject.bismuth_dnether_ore": "§4Nether§r Bismuth Ore",
   "block.atarisnewmegamodproject.magic_block": "Magic Block",
+  "block.atarisnewmegamodproject.bloodwood_log": "Bloodwood Log",
+  "block.atarisnewmegamodproject.stripped_bloodwood_log": "Stripped Bloodwood Log",
+  "block.atarisnewmegamodproject.bloodwood_wood": "Bloodwood Wood",
+  "block.atarisnewmegamodproject.stripped_bloodwood_wood": "Stripped Bloodwood Wood",
+  "block.atarisnewmegamodproject.bloodwood_planks": "Bloodwood Planks",
+  "block.atarisnewmegamodproject.bloodwood_sapling": "Bloodwood Sapling",
+  "block.atarisnewmegamodproject.bloodwood_leaves": "Bloodwood Leaves",
 
   "block.atarisnewmegamodproject.bismuth_stairs": "Bismuth Stairs",
   "block.atarisnewmegamodproject.bismuth_slab": "Bismuth Slab",
@@ -39,8 +60,23 @@
   "block.atarisnewmegamodproject.bismuth_trapdoor": "Bismuth Trapdoor",
   "block.atarisnewmegamodproject.bismuth_lamp": "Bismuth Lamp",
 
+  "block.atarisnewmegamodproject.radish_crop": "Radish Crop",
+  "block.atarisnewmegamodproject.goji_berry_bush": "Goji Berry Bush",
+
   "creativetab.atarisnewmegamodproject.bismuth_items": "Bismuth Items",
   "creativetab.atarisnewmegamodproject.bismuth_blocks": "Bismuth Blocks",
+
+  "effect.atarisnewmegamodproject.slimey": "Slimey",
+
+  "painting.atarisnewmegamodproject.world.title": "World",
+  "painting.atarisnewmegamodproject.world.author": "NanoAttack",
+  "painting.atarisnewmegamodproject.shrimp.title": "Shrimp",
+  "painting.atarisnewmegamodproject.shrimp.author": "NanoAttack",
+  "painting.atarisnewmegamodproject.saw_them.title": "Saw Them",
+  "painting.atarisnewmegamodproject.saw_them.author": "NanoAttack",
+
+  "enchantment.atarisnewmegamodproject.lightning_striker": "Lightning Striker",
+
 
   "tooltip.atarisnewmegamodproject.magic_block.tooltip": "This Block is very §l§dM§aA§sG§4I§eC§1A§2L§r",
   "tooltip.atarisnewmegamodproject.chisel.shift_down": "This Item can chisel Blocks into Bricks",

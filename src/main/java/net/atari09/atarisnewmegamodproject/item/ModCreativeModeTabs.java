@@ -42,6 +42,10 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.BISMUTH_BOOTS);
 
                         output.accept(ModItems.KAUPEN_SMITHING_TEMPLATE);
+                        output.accept(ModItems.KAUPEN_BOW);
+                        output.accept(ModItems.BAR_BRAWL_MUSIC_DISC);
+                        output.accept(ModItems.RADISH_SEEDS);
+                        output.accept(ModItems.GOJI_BERRIES);
                     })
                     .build());
     public static final Supplier<CreativeModeTab> BISMTUH_BLOCKS_TAB = CREATIVE_MODE_TAB.register("bismuth_blocks_tab",
@@ -52,6 +56,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.BISMUTH_BLOCK);
                         output.accept(ModBlocks.BISMUTH_ORE);
                         output.accept(ModBlocks.BISMUTH_DEEPSLATE_ORE);
+                        output.accept(ModBlocks.BISMUTH_NETHER_ORE);
+                        output.accept(ModBlocks.BISMUTH_END_ORE);
                         output.accept(ModBlocks.MAGIC_BLOCK);
 
                         output.accept(ModBlocks.BISMUTH_STAIRS);
@@ -67,6 +73,14 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.BISMUTH_DOOR);
                         output.accept(ModBlocks.BISMUTH_TRAPDOOR);
                         output.accept(ModBlocks.BISMUTH_LAMP);
+
+                        output.accept(ModBlocks.BLOODWOOD_LEAVES);
+                        output.accept(ModBlocks.BLOODWOOD_LOG);
+                        output.accept(ModBlocks.BLOODWOOD_PLANKS);
+                        output.accept(ModBlocks.BLOODWOOD_SAPLING);
+                        output.accept(ModBlocks.BLOODWOOD_WOOD);
+                        output.accept(ModBlocks.STRIPPED_BLOODWOOD_LOG);
+                        output.accept(ModBlocks.STRIPPED_BLOODWOOD_WOOD);
 
                     })
                     .build());

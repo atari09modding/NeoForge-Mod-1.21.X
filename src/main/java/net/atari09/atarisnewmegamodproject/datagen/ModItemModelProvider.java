@@ -47,8 +47,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.RADISH.get());
         basicItem(ModItems.FROSTFIRE_ICE.get());
         basicItem(ModItems.STARLIGHT_ASHES.get());
-        basicItem(ModItems.CHISEL.get());
+        //basicItem(ModItems.CHISEL.get());
         basicItem(ModItems.BISMUTH_HORSE_ARMOR.get());
+        basicItem(ModItems.BAR_BRAWL_MUSIC_DISC.get());
 
         basicItem(ModItems.KAUPEN_SMITHING_TEMPLATE.get());
 
@@ -70,7 +71,16 @@ public class ModItemModelProvider extends ItemModelProvider {
         trimmedArmorItem(ModItems.BISMUTH_LEGGINGS);
         trimmedArmorItem(ModItems.BISMUTH_BOOTS);
 
+        basicItem(ModItems.RADISH_SEEDS.get());
+        basicItem(ModItems.GOJI_BERRIES.get());
 
+        saplingItem(ModBlocks.BLOODWOOD_SAPLING);
+    }
+
+    private ItemModelBuilder saplingItem(DeferredBlock<Block> item) {
+        return withExistingParent(item.getId().getPath(),
+                ResourceLocation.parse("item/generated")).texture("layer0",
+                ResourceLocation.fromNamespaceAndPath(AtariMod.MOD_ID,"block/" + item.getId().getPath()));
     }
 
     // Shoutout to El_Redstoniano for making this

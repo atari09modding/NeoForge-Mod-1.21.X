@@ -2,9 +2,16 @@ package net.atari09.atarisnewmegamodproject;
 
 import net.atari09.atarisnewmegamodproject.block.ModBlocks;
 import net.atari09.atarisnewmegamodproject.component.ModDataComponents;
+import net.atari09.atarisnewmegamodproject.effect.ModEffects;
+import net.atari09.atarisnewmegamodproject.enchantment.ModEnchantmentEffects;
 import net.atari09.atarisnewmegamodproject.item.ModCreativeModeTabs;
 import net.atari09.atarisnewmegamodproject.item.ModItems;
+import net.atari09.atarisnewmegamodproject.potion.ModPotions;
+import net.atari09.atarisnewmegamodproject.sound.ModSounds;
+import net.atari09.atarisnewmegamodproject.util.ModItemProperties;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -52,6 +59,11 @@ public class AtariMod {
         ModBlocks.register(modEventBus);
 
         ModDataComponents.register(modEventBus);
+
+        ModSounds.register(modEventBus);
+        ModEffects.register(modEventBus);
+        ModPotions.register(modEventBus);
+        ModEnchantmentEffects.register(modEventBus);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
@@ -75,5 +87,13 @@ public class AtariMod {
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
 
+    }
+
+    @EventBusSubscriber(modid = MOD_ID)
+    public static class ClientModEvents {
+        @SubscribeEvent
+        public static void onClientSetup(FMLClientSetupEvent event) {
+            ModItemProperties.addCustomItemProperties();
+        }
     }
 }

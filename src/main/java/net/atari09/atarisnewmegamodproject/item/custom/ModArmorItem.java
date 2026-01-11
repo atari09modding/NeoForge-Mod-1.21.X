@@ -1,4 +1,4 @@
-package net.atari09.atarisnewmegamodproject.block.custom;
+package net.atari09.atarisnewmegamodproject.item.custom;
 import com.google.common.collect.ImmutableMap;
 import net.atari09.atarisnewmegamodproject.item.ModArmorMaterials;
 import net.minecraft.core.Holder;

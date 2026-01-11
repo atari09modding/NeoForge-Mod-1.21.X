@@ -1,14 +1,19 @@
 package net.atari09.atarisnewmegamodproject.block;
 
 import net.atari09.atarisnewmegamodproject.AtariMod;
-import net.atari09.atarisnewmegamodproject.block.custom.BismuthLampBlock;
-import net.atari09.atarisnewmegamodproject.block.custom.MagicBlock;
+import net.atari09.atarisnewmegamodproject.block.custom.*;
 import net.atari09.atarisnewmegamodproject.item.ModItems;
+import net.atari09.atarisnewmegamodproject.sound.ModSounds;
+import net.atari09.atarisnewmegamodproject.worldgen.tree.ModTreeGrowers;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.neoforged.bus.api.IEventBus;
@@ -27,15 +32,25 @@ public class ModBlocks {
                     .strength(4f).requiresCorrectToolForDrops().sound(SoundType.AMETHYST)));
 
     public static final DeferredBlock<Block> BISMUTH_ORE = registerBlock("bismuth_ore",
-            () -> new DropExperienceBlock(UniformInt.of(50,70),
+            () -> new DropExperienceBlock(UniformInt.of(2,4),
                     BlockBehaviour.Properties.of()
                             .strength(3f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
     public static final DeferredBlock<Block> BISMUTH_DEEPSLATE_ORE = registerBlock("bismuth_deepslate_ore",
-            () -> new DropExperienceBlock(UniformInt.of(50,70),
+            () -> new DropExperienceBlock(UniformInt.of(3,6),
                     BlockBehaviour.Properties.of()
                             .strength(4f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
+    public static final DeferredBlock<Block> BISMUTH_END_ORE = registerBlock("bismuth_end_ore",
+            () -> new DropExperienceBlock(UniformInt.of(5,9),
+                    BlockBehaviour.Properties.of()
+                            .strength(7f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    public static final DeferredBlock<Block> BISMUTH_NETHER_ORE = registerBlock("bismuth_nether_ore",
+            () -> new DropExperienceBlock(UniformInt.of(1,5),
+                    BlockBehaviour.Properties.of()
+                            .strength(3f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
+
+
     public static final DeferredBlock<Block> MAGIC_BLOCK = registerBlock("magic_block",
-            () -> new MagicBlock(BlockBehaviour.Properties.of().strength(2f).noLootTable()));
+            () -> new MagicBlock(BlockBehaviour.Properties.of().strength(2f).noLootTable().sound(ModSounds.MAGIC_BLOCK_SOUNDS)));
 
     public static final DeferredBlock<StairBlock> BISMUTH_STAIRS = registerBlock("bismuth_stairs",
             ()-> new StairBlock(ModBlocks.BISMUTH_BLOCK.get().defaultBlockState(),
@@ -67,6 +82,59 @@ public class ModBlocks {
     public static final DeferredBlock<Block> BISMUTH_LAMP = registerBlock("bismuth_lamp",
             () -> new BismuthLampBlock(BlockBehaviour.Properties.of().strength(2f)
                     .requiresCorrectToolForDrops().lightLevel(state -> state.getValue(BismuthLampBlock.CLICKED) ? 15 : 0)));
+
+    public static final DeferredBlock<Block> RADISH_CROP = BLOCKS.register("radish_crop",
+            () -> new RadishCropBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BEETROOTS)));
+
+    public static final DeferredBlock<Block> GOJI_BERRY_BUSH = BLOCKS.register("goji_berry_bush",
+            () -> new GojiBerryBushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH)));
+
+    public static final DeferredBlock<Block> BLOODWOOD_LOG = registerBlock("bloodwood_log",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG)));
+    public static final DeferredBlock<Block> BLOODWOOD_WOOD = registerBlock("bloodwood_wood",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)));
+    public static final DeferredBlock<Block> STRIPPED_BLOODWOOD_LOG = registerBlock("stripped_bloodwood_log",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_LOG)));
+    public static final DeferredBlock<Block> STRIPPED_BLOODWOOD_WOOD = registerBlock("stripped_bloodwood_wood",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD)));
+
+    public static final DeferredBlock<Block> BLOODWOOD_PLANKS = registerBlock("bloodwood_planks",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)){
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 20;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 5;
+                }
+            });
+    public static final DeferredBlock<Block> BLOODWOOD_LEAVES = registerBlock("bloodwood_leaves",
+            () -> new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)){
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 60;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 30;
+                }
+            });
+
+    public static final DeferredBlock<Block> BLOODWOOD_SAPLING = registerBlock("bloodwood_sapling",
+            () -> new SaplingBlock(ModTreeGrowers.BLOODWOOD,BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
 
 
     private static <T extends Block> DeferredBlock registerBlock(String name, Supplier<T> block) {
