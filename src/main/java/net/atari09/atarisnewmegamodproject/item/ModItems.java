@@ -2,6 +2,7 @@ package net.atari09.atarisnewmegamodproject.item;
 
 import net.atari09.atarisnewmegamodproject.AtariMod;
 import net.atari09.atarisnewmegamodproject.block.ModBlocks;
+import net.atari09.atarisnewmegamodproject.entity.ModEntities;
 import net.atari09.atarisnewmegamodproject.item.custom.ModArmorItem;
 import net.atari09.atarisnewmegamodproject.item.custom.ChiselItem;
 import net.atari09.atarisnewmegamodproject.item.custom.FuelItem;
@@ -12,6 +13,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
+import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -92,6 +94,10 @@ public class ModItems {
 
     public static final DeferredItem<Item> GOJI_BERRIES = ITEMS.register("goji_berries",
             () -> new ItemNameBlockItem(ModBlocks.GOJI_BERRY_BUSH.get(), new Item.Properties().food(ModFoodProperties.GOJI_BERRY)));
+
+    public static final DeferredItem<Item> GECKO_SPAWN_EGG = ITEMS.register("gecko_spawn_egg",
+            ()-> new DeferredSpawnEggItem(ModEntities.GECKO,0x31afaf,0xfac00,
+                    new Item.Properties()));
 
 
     public static void register(IEventBus eventBus){

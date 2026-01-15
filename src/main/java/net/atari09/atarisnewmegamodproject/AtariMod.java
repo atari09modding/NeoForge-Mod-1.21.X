@@ -4,11 +4,14 @@ import net.atari09.atarisnewmegamodproject.block.ModBlocks;
 import net.atari09.atarisnewmegamodproject.component.ModDataComponents;
 import net.atari09.atarisnewmegamodproject.effect.ModEffects;
 import net.atari09.atarisnewmegamodproject.enchantment.ModEnchantmentEffects;
+import net.atari09.atarisnewmegamodproject.entity.ModEntities;
+import net.atari09.atarisnewmegamodproject.entity.client.GeckoRenderer;
 import net.atari09.atarisnewmegamodproject.item.ModCreativeModeTabs;
 import net.atari09.atarisnewmegamodproject.item.ModItems;
 import net.atari09.atarisnewmegamodproject.potion.ModPotions;
 import net.atari09.atarisnewmegamodproject.sound.ModSounds;
 import net.atari09.atarisnewmegamodproject.util.ModItemProperties;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
@@ -64,6 +67,7 @@ public class AtariMod {
         ModEffects.register(modEventBus);
         ModPotions.register(modEventBus);
         ModEnchantmentEffects.register(modEventBus);
+        ModEntities.register(modEventBus);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
@@ -94,6 +98,8 @@ public class AtariMod {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             ModItemProperties.addCustomItemProperties();
+
+            EntityRenderers.register(ModEntities.GECKO.get(), GeckoRenderer::new);
         }
     }
 }

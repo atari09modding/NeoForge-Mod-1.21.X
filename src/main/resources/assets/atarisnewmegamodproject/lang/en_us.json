@@ -13,6 +13,8 @@
   "item.atarisnewmegamodproject.bismuth_hoe": "Bismuth Hoe",
   "item.atarisnewmegamodproject.bismuth_hammer": "Bismuth Hammer",
 
+  "item.atarisnewmegamodproject.gecko_spawn_egg": "Gecko Spawn Egg",
+
   "item.atarisnewmegamodproject.kaupen_bow": "Kaupen Bow",
 
   "item.atarisnewmegamodproject.radish_seeds": "Radish Seeds",
@@ -84,5 +86,7 @@
   "tooltip.atarisnewmegamodproject.radish.tooltip": "Tastes really great!",
 
   "trim_pattern.atarisnewmegamodproject.kaupen": "Kaupen Armor Trim",
-  "trim_material.atarisnewmegamodproject.bismuth": "Bismuth Material"
+  "trim_material.atarisnewmegamodproject.bismuth": "Bismuth Material",
+
+  "entity.mccourse.gecko" : "Gecko"
 }

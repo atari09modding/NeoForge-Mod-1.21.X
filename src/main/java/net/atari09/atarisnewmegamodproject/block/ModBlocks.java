@@ -134,7 +134,7 @@ public class ModBlocks {
             });
 
     public static final DeferredBlock<Block> BLOODWOOD_SAPLING = registerBlock("bloodwood_sapling",
-            () -> new SaplingBlock(ModTreeGrowers.BLOODWOOD,BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
+            () -> new ModSaplingBlock(ModTreeGrowers.BLOODWOOD,BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING), () -> Blocks.MYCELIUM));
 
 
     private static <T extends Block> DeferredBlock registerBlock(String name, Supplier<T> block) {
