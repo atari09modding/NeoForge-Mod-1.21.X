@@ -1,4 +1,4 @@
-// 1.21.1	2026-01-13T17:49:52.0111553	Item Models: atarisnewmegamodproject
+// 1.21.1	2026-01-24T15:16:15.5871562	Item Models: atarisnewmegamodproject
 52dc40931a5601e0bdd3b5a12383ba23e054629c assets/atarisnewmegamodproject/models/item/bar_brawl_music_disc.json
 12db004ee720434c8c6a99f6efc2f34b8051b007 assets/atarisnewmegamodproject/models/item/bismuth.json
 15eb5ce4b6bb7e9fc0bbb7a274da782df4693390 assets/atarisnewmegamodproject/models/item/bismuth_axe.json
@@ -64,4 +64,5 @@ b2fa7e0c07caa1a703f0fe15cf2736b7ecb0c30d assets/atarisnewmegamodproject/models/i
 e2c700f0a2ee7c792f2e67bcf3b60e012155d811 assets/atarisnewmegamodproject/models/item/radish.json
 07ab57b81766fb3e94d668f191d580e9aed117c3 assets/atarisnewmegamodproject/models/item/radish_seeds.json
 4092bf9e1eaac317cfe76029312b8d02e6bf7215 assets/atarisnewmegamodproject/models/item/raw_bismuth.json
+7fccf675eee1617921644b69e3e06bf8785b7b0f assets/atarisnewmegamodproject/models/item/redstone_axe.json
 4b6db4fb7d2c8162791f72893a70c44d9408cd4f assets/atarisnewmegamodproject/models/item/starlight_ashes.json

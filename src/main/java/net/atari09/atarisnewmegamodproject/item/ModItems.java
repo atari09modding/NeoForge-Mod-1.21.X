@@ -3,10 +3,7 @@ package net.atari09.atarisnewmegamodproject.item;
 import net.atari09.atarisnewmegamodproject.AtariMod;
 import net.atari09.atarisnewmegamodproject.block.ModBlocks;
 import net.atari09.atarisnewmegamodproject.entity.ModEntities;
-import net.atari09.atarisnewmegamodproject.item.custom.ModArmorItem;
-import net.atari09.atarisnewmegamodproject.item.custom.ChiselItem;
-import net.atari09.atarisnewmegamodproject.item.custom.FuelItem;
-import net.atari09.atarisnewmegamodproject.item.custom.HammerItem;
+import net.atari09.atarisnewmegamodproject.item.custom.*;
 import net.atari09.atarisnewmegamodproject.sound.ModSounds;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -98,6 +95,17 @@ public class ModItems {
     public static final DeferredItem<Item> GECKO_SPAWN_EGG = ITEMS.register("gecko_spawn_egg",
             ()-> new DeferredSpawnEggItem(ModEntities.GECKO,0x31afaf,0xfac00,
                     new Item.Properties()));
+
+    public static final DeferredItem<Item> TOMAHAWK = ITEMS.register("tomahawk",
+            ()-> new TomahawkItem(new Item.Properties().stacksTo(16)));
+
+    public static final DeferredItem<Item> RADIATION_STAFF = ITEMS.register("radiation_staff",
+            ()-> new MagicWandItem(new Item.Properties().stacksTo(1).durability(1250)));
+
+    public static final DeferredItem<AxeItem> REDSTONE_AXE = ITEMS.register("redstone_axe",
+            ()->new AxeItem(ModToolTiers.REDSTONE, new Item.Properties()
+                    .attributes(AxeItem.createAttributes(ModToolTiers.REDSTONE, 12f,-2f))));
+
 
 
     public static void register(IEventBus eventBus){

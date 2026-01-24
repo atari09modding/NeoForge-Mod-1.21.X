@@ -5,12 +5,16 @@ import net.atari09.atarisnewmegamodproject.component.ModDataComponents;
 import net.atari09.atarisnewmegamodproject.effect.ModEffects;
 import net.atari09.atarisnewmegamodproject.enchantment.ModEnchantmentEffects;
 import net.atari09.atarisnewmegamodproject.entity.ModEntities;
+import net.atari09.atarisnewmegamodproject.entity.client.ChairRenderer;
 import net.atari09.atarisnewmegamodproject.entity.client.GeckoRenderer;
+import net.atari09.atarisnewmegamodproject.entity.client.MagicProjectileRenderer;
+import net.atari09.atarisnewmegamodproject.entity.client.TomahawkProjectileRenderer;
 import net.atari09.atarisnewmegamodproject.item.ModCreativeModeTabs;
 import net.atari09.atarisnewmegamodproject.item.ModItems;
 import net.atari09.atarisnewmegamodproject.potion.ModPotions;
 import net.atari09.atarisnewmegamodproject.sound.ModSounds;
 import net.atari09.atarisnewmegamodproject.util.ModItemProperties;
+import net.atari09.atarisnewmegamodproject.villager.ModVillagers;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -44,6 +48,8 @@ public class AtariMod {
         modEventBus.addListener(this::commonSetup);
 
 
+
+
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
@@ -68,6 +74,9 @@ public class AtariMod {
         ModPotions.register(modEventBus);
         ModEnchantmentEffects.register(modEventBus);
         ModEntities.register(modEventBus);
+
+        ModVillagers.register(modEventBus);
+
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
@@ -100,6 +109,9 @@ public class AtariMod {
             ModItemProperties.addCustomItemProperties();
 
             EntityRenderers.register(ModEntities.GECKO.get(), GeckoRenderer::new);
+            EntityRenderers.register(ModEntities.TOMAHAWK.get(), TomahawkProjectileRenderer::new);
+            EntityRenderers.register(ModEntities.CHAIR_ENTITY.get(), ChairRenderer::new);
+            EntityRenderers.register(ModEntities.MAGIC_PROJECTILE.get(), MagicProjectileRenderer::new);
         }
     }
 }

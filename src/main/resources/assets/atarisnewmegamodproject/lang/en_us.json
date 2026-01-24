@@ -13,7 +13,13 @@
   "item.atarisnewmegamodproject.bismuth_hoe": "Bismuth Hoe",
   "item.atarisnewmegamodproject.bismuth_hammer": "Bismuth Hammer",
 
+  "item.atarisnewmegamodproject.redstone_axe": "Redstone §4AXE",
+
   "item.atarisnewmegamodproject.gecko_spawn_egg": "Gecko Spawn Egg",
+
+  "item.atarisnewmegamodproject.tomahawk": "Tomahawk",
+
+  "item.atarisnewmegamodproject.radiation_staff": "Radiation Staff",
 
   "item.atarisnewmegamodproject.kaupen_bow": "Kaupen Bow",
 
@@ -65,10 +71,14 @@
   "block.atarisnewmegamodproject.radish_crop": "Radish Crop",
   "block.atarisnewmegamodproject.goji_berry_bush": "Goji Berry Bush",
 
+  "block.atarisnewmegamodproject.chair": "Chair",
+
   "creativetab.atarisnewmegamodproject.bismuth_items": "Bismuth Items",
   "creativetab.atarisnewmegamodproject.bismuth_blocks": "Bismuth Blocks",
 
   "effect.atarisnewmegamodproject.slimey": "Slimey",
+
+  "entity.minecraft.villager.atarisnewmegamodproject.kaupenger": "Kaupenger",
 
   "painting.atarisnewmegamodproject.world.title": "World",
   "painting.atarisnewmegamodproject.world.author": "NanoAttack",
@@ -88,5 +98,6 @@
   "trim_pattern.atarisnewmegamodproject.kaupen": "Kaupen Armor Trim",
   "trim_material.atarisnewmegamodproject.bismuth": "Bismuth Material",
 
-  "entity.mccourse.gecko" : "Gecko"
+  "entity.mccourse.gecko" : "Gecko",
+  "entity.mccourse.tomahawk" : "Tomahawk"
 }

@@ -136,6 +136,9 @@ public class ModBlocks {
     public static final DeferredBlock<Block> BLOODWOOD_SAPLING = registerBlock("bloodwood_sapling",
             () -> new ModSaplingBlock(ModTreeGrowers.BLOODWOOD,BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING), () -> Blocks.MYCELIUM));
 
+    public static final DeferredBlock<Block> CHAIR = registerBlock("chair",
+            () -> new ChairBlock(BlockBehaviour.Properties.of().noOcclusion()));
+
 
     private static <T extends Block> DeferredBlock registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "atarisnewmegamodproject:block/chair"
+    },
+    "facing=south": {
+      "model": "atarisnewmegamodproject:block/chair",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "atarisnewmegamodproject:block/chair",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "atarisnewmegamodproject:block/chair",
+      "y": 270
+    }
+  }
+}

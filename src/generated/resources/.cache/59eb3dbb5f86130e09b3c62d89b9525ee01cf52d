@@ -1,4 +1,4 @@
-// 1.21.1	2026-01-09T17:52:36.5012317	Loot Tables
+// 1.21.1	2026-01-24T15:16:15.5871562	Loot Tables
 f6f5da4cf285e50ff296159421a935744e55f151 data/atarisnewmegamodproject/loot_table/blocks/bismuth_block.json
 097381de21ff5b4a1341eba0009cac6dc57806aa data/atarisnewmegamodproject/loot_table/blocks/bismuth_button.json
 0c3928cf2ca9f9aff61641711de9ba320e279b1d data/atarisnewmegamodproject/loot_table/blocks/bismuth_deepslate_ore.json
@@ -19,6 +19,7 @@ a17c6187874676d4efcfb177456b43b9a847f43f data/atarisnewmegamodproject/loot_table
 1eb114721dad152ac517d3a2e65931adb5813978 data/atarisnewmegamodproject/loot_table/blocks/bloodwood_planks.json
 8534c8b6bd233b0388551f6af7422efe75218adb data/atarisnewmegamodproject/loot_table/blocks/bloodwood_sapling.json
 36a1f0affe742ecdbcd233f2efd3a59d8a4c770f data/atarisnewmegamodproject/loot_table/blocks/bloodwood_wood.json
+120d82eefc4e8cef64045d6dfa88bbfd37141a62 data/atarisnewmegamodproject/loot_table/blocks/chair.json
 50527f6ce57eb450c34c4e87eff27a3fb52c2cb8 data/atarisnewmegamodproject/loot_table/blocks/goji_berry_bush.json
 154259436dc85bcb94c6c59aa41c60121803cd9a data/atarisnewmegamodproject/loot_table/blocks/radish_crop.json
 a9d7fd3332e45f3df9d32490e38b6519eaf9bd56 data/atarisnewmegamodproject/loot_table/blocks/stripped_bloodwood_log.json

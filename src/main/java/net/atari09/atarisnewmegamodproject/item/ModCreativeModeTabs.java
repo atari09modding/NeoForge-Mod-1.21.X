@@ -49,6 +49,12 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModItems.GECKO_SPAWN_EGG);
 
+                        output.accept(ModItems.TOMAHAWK);
+
+                        output.accept(ModItems.RADIATION_STAFF);
+
+                        output.accept(ModItems.REDSTONE_AXE);
+
                     })
                     .build());
     public static final Supplier<CreativeModeTab> BISMTUH_BLOCKS_TAB = CREATIVE_MODE_TAB.register("bismuth_blocks_tab",
@@ -84,6 +90,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.BLOODWOOD_WOOD);
                         output.accept(ModBlocks.STRIPPED_BLOODWOOD_LOG);
                         output.accept(ModBlocks.STRIPPED_BLOODWOOD_WOOD);
+
+                        output.accept(ModBlocks.CHAIR);
 
                     })
                     .build());
