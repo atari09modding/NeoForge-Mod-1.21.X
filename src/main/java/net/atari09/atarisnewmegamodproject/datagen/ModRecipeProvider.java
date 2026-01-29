@@ -39,6 +39,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('S', Items.STICK)
                 .unlockedBy("has_redstone_block", has(Items.REDSTONE_BLOCK)).save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.MAGMA_MACE.get())
+                .pattern("C")
+                .pattern("B")
+                .define('C', ModItems.MAGMA_CORE.get())
+                .define('B', Items.BREEZE_ROD)
+                .unlockedBy("has_magma_core", has(ModItems.MAGMA_CORE)).save(recipeOutput);
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.BISMUTH.get(),9)
                 .requires(ModBlocks.BISMUTH_BLOCK)
                 .unlockedBy("has_bismuth_block", has(ModBlocks.BISMUTH_BLOCK)).save(recipeOutput);

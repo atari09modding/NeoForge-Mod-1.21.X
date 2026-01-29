@@ -42,5 +42,11 @@
         "stream": true
       }
     ]
+  },
+  "g4m_sound": {
+    "subtitle": "sounds.atarisnewmegamodproject.g4m_sound",
+    "sounds": [
+      "atarisnewmegamodproject:g4m_sound"
+    ]
   }
 }

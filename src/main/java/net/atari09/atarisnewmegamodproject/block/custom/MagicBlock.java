@@ -1,6 +1,7 @@
 package net.atari09.atarisnewmegamodproject.block.custom;
 
 import net.atari09.atarisnewmegamodproject.item.ModItems;
+import net.atari09.atarisnewmegamodproject.particle.ModParticles;
 import net.atari09.atarisnewmegamodproject.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -28,6 +29,7 @@ public class MagicBlock extends Block {
 
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
+        level.addParticle(ModParticles.BISMUTH_PARTICLES.get(), pos.getX()+0.5,pos.getY()+1,pos.getZ()+0.5, 0,1,0);
 
 
 

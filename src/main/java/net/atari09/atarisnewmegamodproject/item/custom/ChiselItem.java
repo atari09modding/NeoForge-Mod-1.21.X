@@ -2,6 +2,7 @@ package net.atari09.atarisnewmegamodproject.item.custom;
 
 import net.atari09.atarisnewmegamodproject.block.ModBlocks;
 import net.atari09.atarisnewmegamodproject.component.ModDataComponents;
+import net.atari09.atarisnewmegamodproject.particle.ModParticles;
 import net.atari09.atarisnewmegamodproject.sound.ModSounds;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.particles.BlockParticleOption;
@@ -62,7 +63,11 @@ public class ChiselItem extends Item {
 
                 ((ServerLevel) level).sendParticles(ParticleTypes.DOLPHIN,
                         context.getClickedPos().getX() + 0.5, context.getClickedPos().getY() + 1.5,
-                        context.getClickedPos().getZ() + 0.5, 50,0, 0,0,3);
+                        context.getClickedPos().getZ() + 0.5, 5,0, 0,0,3);
+
+                ((ServerLevel) level).sendParticles(ModParticles.BISMUTH_PARTICLES.get(),
+                        context.getClickedPos().getX() + 0.5, context.getClickedPos().getY() + 1.0,
+                        context.getClickedPos().getZ() + 0.5, 50,0, 0,0,2);
 
                 context.getItemInHand().set(ModDataComponents.COORDINATES, context.getClickedPos());
             }

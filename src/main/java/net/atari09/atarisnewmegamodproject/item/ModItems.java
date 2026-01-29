@@ -5,9 +5,17 @@ import net.atari09.atarisnewmegamodproject.block.ModBlocks;
 import net.atari09.atarisnewmegamodproject.entity.ModEntities;
 import net.atari09.atarisnewmegamodproject.item.custom.*;
 import net.atari09.atarisnewmegamodproject.sound.ModSounds;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
@@ -105,6 +113,31 @@ public class ModItems {
     public static final DeferredItem<AxeItem> REDSTONE_AXE = ITEMS.register("redstone_axe",
             ()->new AxeItem(ModToolTiers.REDSTONE, new Item.Properties()
                     .attributes(AxeItem.createAttributes(ModToolTiers.REDSTONE, 12f,-2f))));
+
+    public static final DeferredItem<Item> MAGMA_MACE = ITEMS.register("magma_mace",
+            ()->new MaceItem(new Item.Properties().rarity(Rarity.EPIC).durability(500).component(DataComponents.TOOL, MaceItem.createToolProperties()).attributes(MaceItem.createAttributes()))
+            {
+                @Override
+                public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+                    target.setRemainingFireTicks(100);
+                    return super.hurtEnemy(stack, target, attacker);
+                }
+            });
+
+    public static final DeferredItem<Item> MAGMA_CORE = ITEMS.register("magma_core",
+            ()-> new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item> G4M = ITEMS.register("g4m_529_pro_guitar",
+            ()-> new Item(new Item.Properties()){
+            @Override
+            public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
+                ItemStack itemstack = player.getItemInHand(usedHand);
+                if(usedHand == InteractionHand.MAIN_HAND){
+                    level.playSound(player,player.getOnPos(),ModSounds.G4M.get(), SoundSource.PLAYERS);
+                }
+                return InteractionResultHolder.pass(itemstack);
+            }
+    });
 
 
 

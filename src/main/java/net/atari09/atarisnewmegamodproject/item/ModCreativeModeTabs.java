@@ -54,6 +54,10 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.RADIATION_STAFF);
 
                         output.accept(ModItems.REDSTONE_AXE);
+                        output.accept(ModItems.MAGMA_CORE);
+                        output.accept(ModItems.MAGMA_MACE);
+
+                        output.accept(ModItems.G4M);
 
                     })
                     .build());
@@ -92,6 +96,9 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.STRIPPED_BLOODWOOD_WOOD);
 
                         output.accept(ModBlocks.CHAIR);
+
+                        output.accept(ModBlocks.PEDESTAL);
+
 
                     })
                     .build());

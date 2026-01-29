@@ -1,6 +1,8 @@
 package net.atari09.atarisnewmegamodproject;
 
 import net.atari09.atarisnewmegamodproject.block.ModBlocks;
+import net.atari09.atarisnewmegamodproject.block.entity.ModBlockEntities;
+import net.atari09.atarisnewmegamodproject.block.entity.renderer.PedestalBlockEntityRenderer;
 import net.atari09.atarisnewmegamodproject.component.ModDataComponents;
 import net.atari09.atarisnewmegamodproject.effect.ModEffects;
 import net.atari09.atarisnewmegamodproject.enchantment.ModEnchantmentEffects;
@@ -11,6 +13,9 @@ import net.atari09.atarisnewmegamodproject.entity.client.MagicProjectileRenderer
 import net.atari09.atarisnewmegamodproject.entity.client.TomahawkProjectileRenderer;
 import net.atari09.atarisnewmegamodproject.item.ModCreativeModeTabs;
 import net.atari09.atarisnewmegamodproject.item.ModItems;
+import net.atari09.atarisnewmegamodproject.loot.ModLootModifiers;
+import net.atari09.atarisnewmegamodproject.particle.BismuthParticles;
+import net.atari09.atarisnewmegamodproject.particle.ModParticles;
 import net.atari09.atarisnewmegamodproject.potion.ModPotions;
 import net.atari09.atarisnewmegamodproject.sound.ModSounds;
 import net.atari09.atarisnewmegamodproject.util.ModItemProperties;
@@ -19,6 +24,8 @@ import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -76,6 +83,11 @@ public class AtariMod {
         ModEntities.register(modEventBus);
 
         ModVillagers.register(modEventBus);
+        ModParticles.register(modEventBus);
+
+        ModLootModifiers.register(modEventBus);
+
+        ModBlockEntities.register(modEventBus);
 
     }
 
@@ -112,6 +124,16 @@ public class AtariMod {
             EntityRenderers.register(ModEntities.TOMAHAWK.get(), TomahawkProjectileRenderer::new);
             EntityRenderers.register(ModEntities.CHAIR_ENTITY.get(), ChairRenderer::new);
             EntityRenderers.register(ModEntities.MAGIC_PROJECTILE.get(), MagicProjectileRenderer::new);
+        }
+
+        @SubscribeEvent
+        public static void registerParticleFactories(RegisterParticleProvidersEvent event){
+            event.registerSpriteSet(ModParticles.BISMUTH_PARTICLES.get(), BismuthParticles.Provider::new);
+        }
+
+        @SubscribeEvent
+        public static void registerBER(EntityRenderersEvent.RegisterRenderers event){
+            event.registerBlockEntityRenderer(ModBlockEntities.PEDESTAL_BE.get(), PedestalBlockEntityRenderer::new);
         }
     }
 }

@@ -79,6 +79,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         withExistingParent(ModItems.GECKO_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
 
         handheldItem(ModItems.REDSTONE_AXE);
+        handheldItem(ModItems.MAGMA_MACE);
     }
 
     private ItemModelBuilder saplingItem(DeferredBlock<Block> item) {

@@ -18,6 +18,7 @@ public class ModSounds {
             DeferredRegister.create(BuiltInRegistries.SOUND_EVENT, AtariMod.MOD_ID);
 
     public static final Supplier<SoundEvent> CHISEL_USE = registerSoundEvent("chisel_used");
+    public static final Supplier<SoundEvent> G4M = registerSoundEvent("g4m_sound");
 
     public static final Supplier<SoundEvent> MAGIC_BLOCK_BREAK = registerSoundEvent("magic_block_break");
     public static final Supplier<SoundEvent> MAGIC_BLOCK_STEP = registerSoundEvent("magic_block_step");
@@ -30,6 +31,8 @@ public class ModSounds {
 
     public static final Supplier<SoundEvent> BAR_BRAWL = registerSoundEvent("bar_brawl");
     public static final ResourceKey<JukeboxSong> BAR_BRAWL_KEY = createSong("bar_brawl");
+
+
 
     private static ResourceKey<JukeboxSong> createSong(String name){
         return ResourceKey.create(Registries.JUKEBOX_SONG, ResourceLocation.fromNamespaceAndPath(AtariMod.MOD_ID, name));

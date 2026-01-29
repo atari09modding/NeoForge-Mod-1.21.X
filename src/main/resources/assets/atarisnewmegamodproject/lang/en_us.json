@@ -15,11 +15,16 @@
 
   "item.atarisnewmegamodproject.redstone_axe": "Redstone §4AXE",
 
+  "item.atarisnewmegamodproject.magma_core": "Magma Core",
+  "item.atarisnewmegamodproject.magma_mace": "Magma Mace",
+
   "item.atarisnewmegamodproject.gecko_spawn_egg": "Gecko Spawn Egg",
 
   "item.atarisnewmegamodproject.tomahawk": "Tomahawk",
 
   "item.atarisnewmegamodproject.radiation_staff": "Radiation Staff",
+
+  "item.atarisnewmegamodproject.g4m_529_pro_guitar": "G4M 529 Pro Guitar",
 
   "item.atarisnewmegamodproject.kaupen_bow": "Kaupen Bow",
 
@@ -72,6 +77,7 @@
   "block.atarisnewmegamodproject.goji_berry_bush": "Goji Berry Bush",
 
   "block.atarisnewmegamodproject.chair": "Chair",
+  "block.atarisnewmegamodproject.pedestal": "Pedestal",
 
   "creativetab.atarisnewmegamodproject.bismuth_items": "Bismuth Items",
   "creativetab.atarisnewmegamodproject.bismuth_blocks": "Bismuth Blocks",
@@ -99,5 +105,7 @@
   "trim_material.atarisnewmegamodproject.bismuth": "Bismuth Material",
 
   "entity.mccourse.gecko" : "Gecko",
-  "entity.mccourse.tomahawk" : "Tomahawk"
+  "entity.mccourse.tomahawk" : "Tomahawk",
+
+  "sounds.atarisnewmegamodproject.g4m_sound" : "Guitar Chugging with §4FAT§r low end EQ"
 }

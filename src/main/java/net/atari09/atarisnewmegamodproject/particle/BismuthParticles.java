@@ -31,8 +31,8 @@ public class BismuthParticles extends TextureSheetParticle {
         }
 
         @Override
-        public @Nullable Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
-            return null;
+        public @Nullable Particle createParticle(SimpleParticleType type, ClientLevel level, double px, double py, double pz, double pXSpeed, double pYSpeed, double pZSpeed) {
+            return new BismuthParticles(level, px,py,pz,spriteSet,pXSpeed,pYSpeed,pZSpeed);
         }
     }
 }

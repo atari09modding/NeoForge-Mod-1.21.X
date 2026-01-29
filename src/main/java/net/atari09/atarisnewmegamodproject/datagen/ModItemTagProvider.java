@@ -67,6 +67,9 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
         this.tag(ItemTags.PLANKS)
                 .add(ModBlocks.BLOODWOOD_PLANKS.asItem());
+
+        this.tag(ItemTags.MACE_ENCHANTABLE)
+                .add(ModItems.MAGMA_MACE.get());
     }
 
 }
