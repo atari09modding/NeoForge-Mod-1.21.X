@@ -8,6 +8,7 @@ import net.atari09.atarisnewmegamodproject.sound.ModSounds;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -15,7 +16,9 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.material.Fluids;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
@@ -138,6 +141,17 @@ public class ModItems {
                 return InteractionResultHolder.pass(itemstack);
             }
     });
+
+    public static final DeferredItem<Item> BROK_SPAWN_EGG = ITEMS.register("brok_spawn_egg",
+            ()-> new DeferredSpawnEggItem(ModEntities.BROK,0x626363,0x4c5c54,
+                    new Item.Properties()));
+
+    public static final DeferredItem<Item> PIRANHA_SPAWN_EGG = ITEMS.register("piranha_spawn_egg",
+            ()-> new DeferredSpawnEggItem(ModEntities.PIRANHA,0x384a59,0x365596,
+                    new Item.Properties()));
+
+    public static DeferredItem<Item> PIRANHA_BUCKET = ITEMS.register("piranha_bucket",
+            ()->new MobBucketItem(ModEntities.PIRANHA.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH,new Item.Properties().stacksTo(1).component(DataComponents.BUCKET_ENTITY_DATA, CustomData.EMPTY)));
 
 
 

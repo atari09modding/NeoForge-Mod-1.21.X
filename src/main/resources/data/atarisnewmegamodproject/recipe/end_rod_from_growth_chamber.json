@@ -1,0 +1,10 @@
+{
+  "type": "atarisnewmegamodproject:growth_chamber",
+  "ingredient": {
+    "item": "minecraft:stick"
+  },
+  "result": {
+    "id": "minecraft:end_rod",
+    "count": 2
+  }
+}

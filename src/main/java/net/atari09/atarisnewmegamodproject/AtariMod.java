@@ -7,24 +7,27 @@ import net.atari09.atarisnewmegamodproject.component.ModDataComponents;
 import net.atari09.atarisnewmegamodproject.effect.ModEffects;
 import net.atari09.atarisnewmegamodproject.enchantment.ModEnchantmentEffects;
 import net.atari09.atarisnewmegamodproject.entity.ModEntities;
-import net.atari09.atarisnewmegamodproject.entity.client.ChairRenderer;
-import net.atari09.atarisnewmegamodproject.entity.client.GeckoRenderer;
-import net.atari09.atarisnewmegamodproject.entity.client.MagicProjectileRenderer;
-import net.atari09.atarisnewmegamodproject.entity.client.TomahawkProjectileRenderer;
+import net.atari09.atarisnewmegamodproject.entity.client.*;
 import net.atari09.atarisnewmegamodproject.item.ModCreativeModeTabs;
 import net.atari09.atarisnewmegamodproject.item.ModItems;
 import net.atari09.atarisnewmegamodproject.loot.ModLootModifiers;
 import net.atari09.atarisnewmegamodproject.particle.BismuthParticles;
 import net.atari09.atarisnewmegamodproject.particle.ModParticles;
 import net.atari09.atarisnewmegamodproject.potion.ModPotions;
+import net.atari09.atarisnewmegamodproject.recipe.ModRecipes;
+import net.atari09.atarisnewmegamodproject.screen.ModMenuTypes;
+import net.atari09.atarisnewmegamodproject.screen.custom.GrowthChamberScreen;
+import net.atari09.atarisnewmegamodproject.screen.custom.PedestalScreen;
 import net.atari09.atarisnewmegamodproject.sound.ModSounds;
 import net.atari09.atarisnewmegamodproject.util.ModItemProperties;
 import net.atari09.atarisnewmegamodproject.villager.ModVillagers;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import org.slf4j.Logger;
 
@@ -39,6 +42,7 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
+
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @net.neoforged.fml.common.Mod(AtariMod.MOD_ID)
 public class AtariMod {
@@ -47,13 +51,15 @@ public class AtariMod {
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
 
+    public static ResourceLocation res(String path){
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
+    }
 
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public AtariMod(IEventBus modEventBus, ModContainer modContainer) {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
-
 
 
 
@@ -88,6 +94,11 @@ public class AtariMod {
         ModLootModifiers.register(modEventBus);
 
         ModBlockEntities.register(modEventBus);
+
+        ModMenuTypes.register(modEventBus);
+
+        ModRecipes.register(modEventBus);
+
 
     }
 
@@ -124,6 +135,8 @@ public class AtariMod {
             EntityRenderers.register(ModEntities.TOMAHAWK.get(), TomahawkProjectileRenderer::new);
             EntityRenderers.register(ModEntities.CHAIR_ENTITY.get(), ChairRenderer::new);
             EntityRenderers.register(ModEntities.MAGIC_PROJECTILE.get(), MagicProjectileRenderer::new);
+            EntityRenderers.register(ModEntities.BROK.get(), BrokRenderer::new);
+            EntityRenderers.register(ModEntities.BROK_STONE.get(), BrokStoneRenderer::new);
         }
 
         @SubscribeEvent
@@ -134,6 +147,12 @@ public class AtariMod {
         @SubscribeEvent
         public static void registerBER(EntityRenderersEvent.RegisterRenderers event){
             event.registerBlockEntityRenderer(ModBlockEntities.PEDESTAL_BE.get(), PedestalBlockEntityRenderer::new);
+        }
+
+        @SubscribeEvent
+        public static void registerScreens(RegisterMenuScreensEvent event){
+            event.register(ModMenuTypes.PEDESTAL_MENU.get(), PedestalScreen::new);
+            event.register(ModMenuTypes.GROWTH_CHAMBER_MENU.get(), GrowthChamberScreen::new);
         }
     }
 }

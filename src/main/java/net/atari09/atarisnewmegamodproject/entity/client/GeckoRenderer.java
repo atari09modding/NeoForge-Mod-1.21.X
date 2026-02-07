@@ -5,14 +5,13 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.atari09.atarisnewmegamodproject.AtariMod;
 import net.atari09.atarisnewmegamodproject.entity.GeckoVariant;
+import net.atari09.atarisnewmegamodproject.entity.client.layers.GeckoEyesLayer;
 import net.atari09.atarisnewmegamodproject.entity.custom.GeckoEntity;
 import net.minecraft.Util;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.Mth;
-import org.joml.Quaternionf;
 
 import java.util.Map;
 
@@ -29,8 +28,11 @@ public class GeckoRenderer extends MobRenderer<GeckoEntity, GeckoModel<GeckoEnti
                         ResourceLocation.fromNamespaceAndPath(AtariMod.MOD_ID, "textures/entity/gecko/gecko_brown.png"));
             });
 
+
+
     public GeckoRenderer(EntityRendererProvider.Context context) {
         super(context, new GeckoModel<>(context.bakeLayer(GeckoModel.LAYER_LOCATION)), 0.25f);
+        this.addLayer(new GeckoEyesLayer(this));
     }
 
     @Override
@@ -42,8 +44,6 @@ public class GeckoRenderer extends MobRenderer<GeckoEntity, GeckoModel<GeckoEnti
     public void render(GeckoEntity entity, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight) {
         if(entity.isBaby()){
             poseStack.scale(0.45f, 0.45f, 0.45f);
-        } else{
-            poseStack.scale(1f, 1f, 1f);
         }
 
         if(entity.isClimbing()){
@@ -52,6 +52,9 @@ public class GeckoRenderer extends MobRenderer<GeckoEntity, GeckoModel<GeckoEnti
             poseStack.mulPose(Axis.YP.rotationDegrees(entity.getYRot()));
         }
 
+
         super.render(entity, entityYaw, partialTicks, poseStack, buffer, packedLight);
     }
+
+
 }

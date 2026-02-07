@@ -2,6 +2,7 @@ package net.atari09.atarisnewmegamodproject.datagen;
 
 import net.atari09.atarisnewmegamodproject.AtariMod;
 import net.atari09.atarisnewmegamodproject.block.ModBlocks;
+import net.atari09.atarisnewmegamodproject.entity.ModEntities;
 import net.atari09.atarisnewmegamodproject.item.ModItems;
 import net.atari09.atarisnewmegamodproject.util.ModTags;
 import net.minecraft.core.HolderLookup;

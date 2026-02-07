@@ -2,9 +2,12 @@ package net.atari09.atarisnewmegamodproject.event;
 
 import net.atari09.atarisnewmegamodproject.AtariMod;
 import net.atari09.atarisnewmegamodproject.entity.ModEntities;
+import net.atari09.atarisnewmegamodproject.entity.client.BrokModel;
 import net.atari09.atarisnewmegamodproject.entity.client.GeckoModel;
 import net.atari09.atarisnewmegamodproject.entity.client.TomahawkProjectileModel;
+import net.atari09.atarisnewmegamodproject.entity.custom.BrokEntity;
 import net.atari09.atarisnewmegamodproject.entity.custom.GeckoEntity;
+import net.atari09.atarisnewmegamodproject.entity.custom.PiranhaEntity;
 import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -20,10 +23,13 @@ public class ModEventBusEvents {
     public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event){
         event.registerLayerDefinition(GeckoModel.LAYER_LOCATION, GeckoModel::createBodyLayer);
         event.registerLayerDefinition(TomahawkProjectileModel.LAYER_LOCATION, TomahawkProjectileModel::createBodyLayer);
+        event.registerLayerDefinition(BrokModel.LAYER_LOCATION, BrokModel::createBodyLayer);
     }
     @SubscribeEvent
     public static void registerAttributes(EntityAttributeCreationEvent event){
         event.put(ModEntities.GECKO.get(), GeckoEntity.createAttributtes().build());
+        event.put(ModEntities.BROK.get(), BrokEntity.createAttributtes().build());
+        event.put(ModEntities.PIRANHA.get(), PiranhaEntity.createAttributtes().build());
     }
 
     @SubscribeEvent

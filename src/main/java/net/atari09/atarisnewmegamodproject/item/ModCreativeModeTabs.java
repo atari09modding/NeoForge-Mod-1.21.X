@@ -48,6 +48,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.GOJI_BERRIES);
 
                         output.accept(ModItems.GECKO_SPAWN_EGG);
+                        output.accept(ModItems.BROK_SPAWN_EGG);
 
                         output.accept(ModItems.TOMAHAWK);
 
@@ -98,6 +99,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.CHAIR);
 
                         output.accept(ModBlocks.PEDESTAL);
+                        output.accept(ModBlocks.GROWTH_CHAMBER);
 
 
                     })

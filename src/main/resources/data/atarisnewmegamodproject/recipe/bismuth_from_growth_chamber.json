@@ -1,0 +1,9 @@
+{
+  "type": "atarisnewmegamodproject:growth_chamber",
+  "ingredient": {
+    "item": "atarisnewmegamodproject:raw_bismuth"
+  },
+  "result": {
+    "id": "atarisnewmegamodproject:bismuth"
+  }
+}

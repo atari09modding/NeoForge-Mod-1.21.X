@@ -6,6 +6,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.LootTableProvider;
+import net.minecraft.data.tags.EntityTypeTagsProvider;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -37,6 +38,10 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), blockTagsProvider);
         ItemTagsProvider itemTagsProvider = new ModItemTagProvider(packOutput,lookupProvider,blockTagsProvider.contentsGetter(),existingFileHelper);
         generator.addProvider(event.includeServer(), itemTagsProvider);
+
+        EntityTypeTagsProvider entityTypeTagsProvider = new ModEntityTypeTagProvider(packOutput,lookupProvider,existingFileHelper);
+        generator.addProvider(event.includeServer(), entityTypeTagsProvider);
+
         generator.addProvider(event.includeServer(), new ModDataMapProvider(packOutput,lookupProvider));
 
 

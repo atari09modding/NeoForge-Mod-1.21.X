@@ -142,6 +142,9 @@ public class ModBlocks {
     public static final DeferredBlock<Block> PEDESTAL = registerBlock("pedestal",
     ()-> new PedestalBlock(BlockBehaviour.Properties.of().noOcclusion()));
 
+    public static final DeferredBlock<Block> GROWTH_CHAMBER = registerBlock("growth_chamber",
+            ()->new GrowthChamberBlock(BlockBehaviour.Properties.of()));
+
 
     private static <T extends Block> DeferredBlock registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);

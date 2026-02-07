@@ -1,10 +1,7 @@
 package net.atari09.atarisnewmegamodproject.entity;
 
 import net.atari09.atarisnewmegamodproject.AtariMod;
-import net.atari09.atarisnewmegamodproject.entity.custom.ChairEntity;
-import net.atari09.atarisnewmegamodproject.entity.custom.GeckoEntity;
-import net.atari09.atarisnewmegamodproject.entity.custom.MagicProjectileEntity;
-import net.atari09.atarisnewmegamodproject.entity.custom.TomahawkProjectileEntity;
+import net.atari09.atarisnewmegamodproject.entity.custom.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -32,6 +29,19 @@ public class ModEntities {
     public static final Supplier<EntityType<MagicProjectileEntity>> MAGIC_PROJECTILE =
             ENTITY_TYPES.register("magic_projectile", () -> EntityType.Builder.<MagicProjectileEntity>of(MagicProjectileEntity::new, MobCategory.MISC)//<TomahawkProjectileEntity> is somehow needed when Mobcategory is MISC
                     .sized(0.5f, 0.5f).build("magic_projectile"));
+
+    public static final Supplier<EntityType<BrokStone>> BROK_STONE =
+            ENTITY_TYPES.register("brok_stone_projectile", () -> EntityType.Builder.<BrokStone>of(BrokStone::new, MobCategory.MISC)//<TomahawkProjectileEntity> is somehow needed when Mobcategory is MISC
+                    .sized(0.5f, 0.5f).build("brok_stone_projectile"));
+
+
+    public static final Supplier<EntityType<BrokEntity>> BROK =
+            ENTITY_TYPES.register("brok",()->EntityType.Builder.of(BrokEntity::new, MobCategory.MONSTER)
+                    .sized(3f,1.5f).build("brok"));
+
+    public static final Supplier<EntityType<PiranhaEntity>> PIRANHA =
+            ENTITY_TYPES.register("piranha",()->EntityType.Builder.of(PiranhaEntity::new, MobCategory.WATER_CREATURE)
+                    .sized(1f,1f).build("piranha"));
 
     public static void register(IEventBus eventBus){
         ENTITY_TYPES.register(eventBus);
