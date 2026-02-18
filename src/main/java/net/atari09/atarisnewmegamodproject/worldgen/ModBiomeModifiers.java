@@ -28,6 +28,8 @@ public class ModBiomeModifiers {
 
     public static final ResourceKey<BiomeModifier> SPAWN_GECKO = registerKey("spawn_gecko");
 
+    public static final ResourceKey<BiomeModifier> SPAWN_PIRANHA = registerKey("spawn_piranha");
+
     public static void bootstrap(BootstrapContext<BiomeModifier> context){
         var placedFeatures = context.lookup(Registries.PLACED_FEATURE);
         var biomes = context.lookup(Registries.BIOME);
@@ -57,6 +59,11 @@ public class ModBiomeModifiers {
         context.register(SPAWN_GECKO, new BiomeModifiers.AddSpawnsBiomeModifier(
                 HolderSet.direct(biomes.getOrThrow(Biomes.SWAMP), biomes.getOrThrow(Biomes.PLAINS)),
                 List.of(new MobSpawnSettings.SpawnerData(ModEntities.GECKO.get(), 20,2,4))));
+
+        context.register(SPAWN_PIRANHA, new BiomeModifiers.AddSpawnsBiomeModifier(
+                HolderSet.direct(biomes.getOrThrow(Biomes.MANGROVE_SWAMP)),
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.PIRANHA.get(), 15, 1,4))));
+
     }
 
     private static ResourceKey<BiomeModifier> registerKey(String name) {

@@ -41,7 +41,7 @@ public class ModEntities {
 
     public static final Supplier<EntityType<PiranhaEntity>> PIRANHA =
             ENTITY_TYPES.register("piranha",()->EntityType.Builder.of(PiranhaEntity::new, MobCategory.WATER_CREATURE)
-                    .sized(1f,1f).build("piranha"));
+                    .sized(0.6f,0.4f).build("piranha"));
 
     public static void register(IEventBus eventBus){
         ENTITY_TYPES.register(eventBus);

@@ -60,6 +60,10 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModItems.G4M);
 
+                        output.accept(ModItems.PIRANHA_BUCKET);
+                        output.accept(ModItems.PIRANHA_SPAWN_EGG);
+
+
                     })
                     .build());
     public static final Supplier<CreativeModeTab> BISMTUH_BLOCKS_TAB = CREATIVE_MODE_TAB.register("bismuth_blocks_tab",
@@ -101,6 +105,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.PEDESTAL);
                         output.accept(ModBlocks.GROWTH_CHAMBER);
 
+                        output.accept(ModItems.LOGMINE_BLOCK_ITEM);
 
                     })
                     .build());

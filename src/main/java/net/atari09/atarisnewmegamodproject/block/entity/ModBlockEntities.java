@@ -21,6 +21,10 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("growth_chamber_be",()->BlockEntityType.Builder.of(
                     GrowthChamberBlockEntity::new, ModBlocks.GROWTH_CHAMBER.get()).build(null));
 
+    public static final Supplier<BlockEntityType<LogMineBlockEntity>> LOGMINE_BE =
+            BLOCK_ENTITIES.register("logmine_be",()->BlockEntityType.Builder.of(
+                    LogMineBlockEntity::new, ModBlocks.LOGMINE.get()).build(null));
+
 
     public static void register(IEventBus eventBus){
         BLOCK_ENTITIES.register(eventBus);

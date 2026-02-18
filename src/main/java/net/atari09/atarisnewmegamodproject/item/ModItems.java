@@ -150,10 +150,12 @@ public class ModItems {
             ()-> new DeferredSpawnEggItem(ModEntities.PIRANHA,0x384a59,0x365596,
                     new Item.Properties()));
 
-    public static DeferredItem<Item> PIRANHA_BUCKET = ITEMS.register("piranha_bucket",
+    public static final DeferredItem<Item> PIRANHA_BUCKET = ITEMS.register("piranha_bucket",
             ()->new MobBucketItem(ModEntities.PIRANHA.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH,new Item.Properties().stacksTo(1).component(DataComponents.BUCKET_ENTITY_DATA, CustomData.EMPTY)));
 
 
+    public static final DeferredItem<Item> LOGMINE_BLOCK_ITEM = ITEMS.register("logmine_block_item",
+            ()->new LogMineBlockItem(ModBlocks.LOGMINE.get(), new Item.Properties()));
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

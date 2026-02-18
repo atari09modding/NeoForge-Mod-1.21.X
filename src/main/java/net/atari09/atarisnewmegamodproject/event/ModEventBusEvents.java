@@ -9,6 +9,7 @@ import net.atari09.atarisnewmegamodproject.entity.custom.BrokEntity;
 import net.atari09.atarisnewmegamodproject.entity.custom.GeckoEntity;
 import net.atari09.atarisnewmegamodproject.entity.custom.PiranhaEntity;
 import net.minecraft.world.entity.SpawnPlacementTypes;
+import net.minecraft.world.entity.ambient.AmbientCreature;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -36,6 +37,8 @@ public class ModEventBusEvents {
     public static void registerSpawnPlacements(RegisterSpawnPlacementsEvent event){
         event.register(ModEntities.GECKO.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Animal::checkAnimalSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+        event.register(ModEntities.GECKO.get(), SpawnPlacementTypes.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                AmbientCreature::checkMobSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
     }
 
 }

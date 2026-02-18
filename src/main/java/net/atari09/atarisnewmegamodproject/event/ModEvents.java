@@ -2,6 +2,8 @@ package net.atari09.atarisnewmegamodproject.event;
 
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.atari09.atarisnewmegamodproject.AtariMod;
+import net.atari09.atarisnewmegamodproject.block.custom.LogMineBlock;
+import net.atari09.atarisnewmegamodproject.block.entity.LogMineBlockEntity;
 import net.atari09.atarisnewmegamodproject.item.ModItems;
 import net.atari09.atarisnewmegamodproject.item.custom.HammerItem;
 import net.atari09.atarisnewmegamodproject.potion.ModPotions;
@@ -24,12 +26,14 @@ import net.minecraft.world.item.alchemy.PotionBrewing;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.loot.predicates.WeatherCheck;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.sound.SoundEvent;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.event.village.VillagerTradesEvent;
 import net.neoforged.neoforge.event.village.WandererTradesEvent;
@@ -130,4 +134,16 @@ public class ModEvents {
                 new ItemCost(Items.NETHERITE_INGOT, 1),
                 new ItemStack(ModItems.BAR_BRAWL_MUSIC_DISC.get(),1),8,5,0.2f));
     }
+
+    @SubscribeEvent
+    public static void onBlockStartBreaking(PlayerInteractEvent.LeftClickBlock event) {
+        Level level = event.getLevel();
+
+        if (level.getBlockState(event.getPos()).getBlock() instanceof LogMineBlock){
+            level.setBlockAndUpdate(event.getPos(), event.getLevel().getBlockState(event.getPos()).setValue(LogMineBlock.ACTIVATED, true));
+
+        }
+    }
+
+
 }

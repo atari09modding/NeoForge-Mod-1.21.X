@@ -82,6 +82,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         handheldItem(ModItems.REDSTONE_AXE);
         handheldItem(ModItems.MAGMA_MACE);
+
     }
 
     private ItemModelBuilder saplingItem(DeferredBlock<Block> item) {

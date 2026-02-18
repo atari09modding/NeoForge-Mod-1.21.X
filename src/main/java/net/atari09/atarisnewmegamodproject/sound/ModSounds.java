@@ -26,6 +26,9 @@ public class ModSounds {
     public static final Supplier<SoundEvent> MAGIC_BLOCK_HIT = registerSoundEvent("magic_block_hit");
     public static final Supplier<SoundEvent> MAGIC_BLOCK_FALL = registerSoundEvent("magic_block_fall");
 
+    public static final Supplier<SoundEvent> PIRANHA_ATTACK = registerSoundEvent("piranha_attack");
+
+
     public static final DeferredSoundType MAGIC_BLOCK_SOUNDS = new DeferredSoundType(1f,1f,
             ModSounds.MAGIC_BLOCK_BREAK, ModSounds.MAGIC_BLOCK_STEP, ModSounds.MAGIC_BLOCK_PLACE, ModSounds.MAGIC_BLOCK_HIT, ModSounds.MAGIC_BLOCK_FALL);
 

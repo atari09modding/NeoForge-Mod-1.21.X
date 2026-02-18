@@ -1,6 +1,7 @@
 package net.atari09.atarisnewmegamodproject;
 
 import net.atari09.atarisnewmegamodproject.block.ModBlocks;
+import net.atari09.atarisnewmegamodproject.block.client.LogMineBlockRenderer;
 import net.atari09.atarisnewmegamodproject.block.entity.ModBlockEntities;
 import net.atari09.atarisnewmegamodproject.block.entity.renderer.PedestalBlockEntityRenderer;
 import net.atari09.atarisnewmegamodproject.component.ModDataComponents;
@@ -41,6 +42,7 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
+import software.bernie.geckolib.GeckoLib;
 
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
@@ -73,6 +75,7 @@ public class AtariMod {
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+
 
         ModCreativeModeTabs.register(modEventBus);
 
@@ -137,6 +140,7 @@ public class AtariMod {
             EntityRenderers.register(ModEntities.MAGIC_PROJECTILE.get(), MagicProjectileRenderer::new);
             EntityRenderers.register(ModEntities.BROK.get(), BrokRenderer::new);
             EntityRenderers.register(ModEntities.BROK_STONE.get(), BrokStoneRenderer::new);
+            EntityRenderers.register(ModEntities.PIRANHA.get(), PiranhaRenderer::new);
         }
 
         @SubscribeEvent
@@ -147,6 +151,7 @@ public class AtariMod {
         @SubscribeEvent
         public static void registerBER(EntityRenderersEvent.RegisterRenderers event){
             event.registerBlockEntityRenderer(ModBlockEntities.PEDESTAL_BE.get(), PedestalBlockEntityRenderer::new);
+            event.registerBlockEntityRenderer(ModBlockEntities.LOGMINE_BE.get(), LogMineBlockRenderer::new);
         }
 
         @SubscribeEvent

@@ -48,5 +48,11 @@
     "sounds": [
       "atarisnewmegamodproject:g4m_sound"
     ]
+  },
+  "piranha_attack": {
+    "subtitle": "sounds.atarisnewmegamodproject.piranha_attack",
+    "sounds": [
+      "atarisnewmegamodproject:piranha_attack"
+    ]
   }
 }

@@ -145,6 +145,9 @@ public class ModBlocks {
     public static final DeferredBlock<Block> GROWTH_CHAMBER = registerBlock("growth_chamber",
             ()->new GrowthChamberBlock(BlockBehaviour.Properties.of()));
 
+    public static final DeferredBlock<Block> LOGMINE = BLOCKS.register("logmine",
+            ()->new LogMineBlock(BlockBehaviour.Properties.of().noOcclusion().strength(2f,100f)));
+
 
     private static <T extends Block> DeferredBlock registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
