@@ -23,6 +23,7 @@ import net.atari09.atarisnewmegamodproject.sound.ModSounds;
 import net.atari09.atarisnewmegamodproject.util.ModItemProperties;
 import net.atari09.atarisnewmegamodproject.villager.ModVillagers;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -141,6 +142,7 @@ public class AtariMod {
             EntityRenderers.register(ModEntities.BROK.get(), BrokRenderer::new);
             EntityRenderers.register(ModEntities.BROK_STONE.get(), BrokStoneRenderer::new);
             EntityRenderers.register(ModEntities.PIRANHA.get(), PiranhaRenderer::new);
+
         }
 
         @SubscribeEvent

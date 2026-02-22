@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"EXPLODE": {
+		"NONE": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 1,
 			"bones": {
@@ -54,7 +54,7 @@
 				}
 			}
 		},
-		"NONE": {
+		"EXPLODE": {
 			"loop": true
 		}
 	},

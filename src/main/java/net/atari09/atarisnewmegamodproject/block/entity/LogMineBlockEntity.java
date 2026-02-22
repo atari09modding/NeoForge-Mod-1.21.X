@@ -1,27 +1,23 @@
 package net.atari09.atarisnewmegamodproject.block.entity;
 
+import net.atari09.atarisnewmegamodproject.block.client.LogMineVariant;
 import net.atari09.atarisnewmegamodproject.block.custom.LogMineBlock;
-import net.atari09.atarisnewmegamodproject.entity.custom.BrokEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
-import net.minecraft.network.syncher.EntityDataAccessor;
-import net.minecraft.network.syncher.EntityDataSerializers;
-import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageType;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.item.PrimedTnt;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import software.bernie.geckolib.animatable.GeoBlockEntity;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animatable.instance.SingletonAnimatableInstanceCache;
 import software.bernie.geckolib.animation.*;
 
+
 public class LogMineBlockEntity extends BlockEntity implements GeoBlockEntity {
-    private AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
+    private final AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
     private int explosionCountdown = 20;
 
 
@@ -31,13 +27,12 @@ public class LogMineBlockEntity extends BlockEntity implements GeoBlockEntity {
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this,"controller", this::predicate).triggerableAnim("EXPLODE",RawAnimation.begin().then("EXPLODE", Animation.LoopType.PLAY_ONCE)));
+        controllers.add(new AnimationController<>(this,"controller", this::predicate));
     }
 
     private PlayState predicate(AnimationState<LogMineBlockEntity> logMineBlockEntityAnimationState) {
-        return logMineBlockEntityAnimationState.setAndContinue(
-                RawAnimation.begin().thenLoop("NONE")
-        );
+        return logMineBlockEntityAnimationState.setAndContinue(this.getBlockState().getValue(LogMineBlock.ACTIVATED).equals(true)?
+                RawAnimation.begin().thenLoop("NONE") : RawAnimation.begin().then("EXPLODE", Animation.LoopType.PLAY_ONCE));
     }
 
     @Override
@@ -48,25 +43,22 @@ public class LogMineBlockEntity extends BlockEntity implements GeoBlockEntity {
 
 
     public void tick(Level level1, BlockPos blockPos, BlockState blockState) {
-        if (level != null && !level.isClientSide) {
-            if (blockState.getValue(LogMineBlock.ACTIVATED).equals(true)) {
-                triggerAnim("controller","EXPLODE");
-                setChanged();
-
-            }
-        }
-
         if(blockState.getValue(LogMineBlock.ACTIVATED).equals(true)){
             explosionCountdown--;
             if(explosionCountdown <= 0){
-                if(!level.isClientSide){
-                    level.explode(null, blockPos.getX()+0.5,blockPos.getY()+0.5,blockPos.getZ()+0.5,5f, Level.ExplosionInteraction.TNT);
-                    level.removeBlock(blockPos, false);
-                    level.removeBlockEntity(blockPos);
+                if(!level1.isClientSide){
+                    PrimedTnt tnt = new PrimedTnt(EntityType.TNT, level1);
+                    tnt.setPos(blockPos.getX(), blockPos.getY(), blockPos.getZ());
+                    tnt.setFuse(0);
+                    level1.addFreshEntity(tnt);
+                    level1.removeBlockEntity(blockPos);
+                    level1.removeBlock(blockPos, false);
                 }
             }
         }
     }
+
+
 
     @Override
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
@@ -78,5 +70,9 @@ public class LogMineBlockEntity extends BlockEntity implements GeoBlockEntity {
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.saveAdditional(tag, registries);
         tag.putInt("countdown", explosionCountdown);
+    }
+
+    public LogMineVariant getVariant() {
+        return LogMineVariant.byId(this.getLevel().getBlockState(this.getBlockPos()).getValue(LogMineBlock.VARIANT));
     }
 }
