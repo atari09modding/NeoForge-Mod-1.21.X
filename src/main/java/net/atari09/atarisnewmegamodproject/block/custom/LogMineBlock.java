@@ -1,14 +1,19 @@
 package net.atari09.atarisnewmegamodproject.block.custom;
 
 import com.mojang.serialization.MapCodec;
+import net.atari09.atarisnewmegamodproject.AtariMod;
+import net.atari09.atarisnewmegamodproject.block.ModBlocks;
 import net.atari09.atarisnewmegamodproject.block.entity.LogMineBlockEntity;
 import net.atari09.atarisnewmegamodproject.block.entity.ModBlockEntities;
 import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
@@ -24,21 +29,31 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
+import net.neoforged.neoforge.registries.DeferredBlock;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Map;
+import java.util.function.Supplier;
 
 public class LogMineBlock extends BaseEntityBlock {
-    public static final MapCodec<LogMineBlock> CODEC = simpleCodec(LogMineBlock::new);
+    public static final MapCodec<LogMineBlock> CODEC = simpleCodec(props -> new LogMineBlock(props, 0));
     public static final BooleanProperty ACTIVATED = BooleanProperty.create("activated");
-    public static final IntegerProperty VARIANT = IntegerProperty.create("variant",0,7);
+    private int ID;
+    private static final Map<Integer, Supplier<BlockEntityType<LogMineBlockEntity>>> TYPE_BY_ID = Map.of(
+            0, ModBlockEntities.LOGMINE_BE,
+            1,ModBlockEntities.LOGMINE_BE_DARKOAK,
+            2,ModBlockEntities.LOGMINE_BE_BIRCH,
+            3,ModBlockEntities.LOGMINE_BE_SPRUCE,
+            4,ModBlockEntities.LOGMINE_BE_CHERRY,
+            5, ModBlockEntities.LOGMINE_BE_MANGROVE,
+            6,ModBlockEntities.LOGMINE_BE_JUNGLE,
+            7,ModBlockEntities.LOGMINE_BE_ACACIA);
 
-
-    public LogMineBlock(Properties properties) {
+    public LogMineBlock(Properties properties,int id) {
         super(properties);
         this.registerDefaultState(this.defaultBlockState().setValue(ACTIVATED, false));
-        this.registerDefaultState(this.defaultBlockState().setValue(VARIANT, 0));
+        this.ID = id;
     }
 
     @Override
@@ -48,7 +63,7 @@ public class LogMineBlock extends BaseEntityBlock {
 
     @Override
     public @Nullable BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new LogMineBlockEntity(pos,state);
+        return new LogMineBlockEntity(pos,state,ID);
     }
 
     @Override
@@ -62,28 +77,18 @@ public class LogMineBlock extends BaseEntityBlock {
             return null;
         }
 
-        return createTickerHelper(blockEntityType, ModBlockEntities.LOGMINE_BE.get(),
+        return createTickerHelper(blockEntityType, TYPE_BY_ID.get(ID).get(),
                 (level1, blockPos, blockState, blockEntity)->blockEntity.tick(level1, blockPos, blockState));
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(ACTIVATED);
-        builder.add(VARIANT);
     }
 
 
     @Override
-    protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block neighborBlock, BlockPos neighborPos, boolean movedByPiston) {
-        super.neighborChanged(state, level, pos, neighborBlock, neighborPos, movedByPiston);
-        if (level.getBlockState(pos.below()).is(BlockTags.LOGS) && !level.isClientSide){
-            System.out.println("x");
-            Map<Block, Integer> logTypeIdMap = Map.of(Blocks.OAK_LOG,0,Blocks.DARK_OAK_LOG,1,Blocks.BIRCH_LOG,2,Blocks.SPRUCE_LOG,3,
-                    Blocks.CHERRY_LOG, 4, Blocks.MANGROVE_LOG,5,Blocks.JUNGLE_LOG,6,Blocks.ACACIA_LOG,7);
-            if(logTypeIdMap.containsKey(level.getBlockState(pos.below()).getBlock())){
-                state.setValue(VARIANT,logTypeIdMap.get(level.getBlockState(pos.below()).getBlock()));
-                level.sendBlockUpdated(pos, state, state, 3);
-            }
-        }
+    protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        super.tick(state, level, pos, random);
     }
 }

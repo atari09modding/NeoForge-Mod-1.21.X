@@ -46,9 +46,18 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('B', Items.BREEZE_ROD)
                 .unlockedBy("has_magma_core", has(ModItems.MAGMA_CORE)).save(recipeOutput);
 
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.BISMUTH.get(),9)
                 .requires(ModBlocks.BISMUTH_BLOCK)
                 .unlockedBy("has_bismuth_block", has(ModBlocks.BISMUTH_BLOCK)).save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.SWISSARMYKNIFE.get(),1)
+                .requires(Items.IRON_INGOT)
+                .requires(Items.DIAMOND_AXE)
+                .requires(Items.DIAMOND_PICKAXE)
+                .requires(Items.DIAMOND_SWORD)
+                .requires(Items.DIAMOND_SHOVEL)
+                .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT)).save(recipeOutput);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.BISMUTH.get(),18)
                 .requires(ModBlocks.MAGIC_BLOCK)

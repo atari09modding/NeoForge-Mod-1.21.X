@@ -45,6 +45,11 @@
 
   "item.atarisnewmegamodproject.bismuth_horse_armor": "Bismuth Horse Armor",
 
+
+  "item.atarisnewmegamodproject.swissarmyknife": "Swiss Army Knife by Victorinox™",
+
+  "item.atarisnewmegamodproject.nukerod": "§4NUKEROD",
+
   "item.minecraft.potion.effect.atarisnewmegamodproject_slimey_potion" : "Slimey Potion",
   "item.minecraft.splash_potion.effect.atarisnewmegamodproject_slimey_potion" : "Slimey Splash Potion",
   "item.minecraft.lingering_potion.effect.atarisnewmegamodproject_slimey_potion" : "Slimey Lingering Potion",
@@ -116,5 +121,9 @@
   "entity.mccourse.brok" : "BROK",
   "entity.mccourse.tomahawk" : "Tomahawk",
 
-  "sounds.atarisnewmegamodproject.g4m_sound" : "Guitar Chugging with §4FAT§r low end EQ"
+  "sounds.atarisnewmegamodproject.g4m_sound" : "Guitar Chugging with §4FAT§r low end EQ",
+  "sounds.atarisnewmegamodproject.piranha_attack" : "GuPiranha Attacks",
+
+  "key.category.atarisnewmegamodproject.atari" : "Ataris New Megamodproject",
+  "key.atarisnewmegamodproject.drink_water" : "Drink Water"
 }

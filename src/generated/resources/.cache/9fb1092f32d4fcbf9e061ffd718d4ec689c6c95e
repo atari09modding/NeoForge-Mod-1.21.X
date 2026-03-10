@@ -1,4 +1,4 @@
-// 1.21.1	2026-01-25T15:30:36.4302157	Recipes
+// 1.21.1	2026-02-28T17:41:15.0436324	Recipes
 9af4ef686110e3687e915d9579bd769c13430882 data/atarisnewmegamodproject/advancement/recipes/building_blocks/bismuth_slab.json
 5e4a7a6fa9b08c53bb0eecb6d4c756b63771e7f8 data/atarisnewmegamodproject/advancement/recipes/building_blocks/bismuth_stairs.json
 f19562c6705494e23d4248c2839ef429b6af8c81 data/atarisnewmegamodproject/advancement/recipes/building_blocks/bismuth_wall.json
@@ -15,6 +15,7 @@ d8209c9f085898e6fca086665c9b223d988ff7af data/atarisnewmegamodproject/advancemen
 c15d97d222c4327e998325f8fa752ac4e1f36f7b data/atarisnewmegamodproject/advancement/recipes/misc/kaupen.json
 0721e9ce518908d93520757073c14a0191f6f7d3 data/atarisnewmegamodproject/advancement/recipes/misc/magma_mace.json
 e590fc825ce207309eaec6b015831d33b6dcee98 data/atarisnewmegamodproject/advancement/recipes/misc/redstone_axe.json
+74a143e887bfd5997661d4714562b3de75ff5ca2 data/atarisnewmegamodproject/advancement/recipes/misc/swissarmyknife.json
 c6daa8746965771897e762bf230dd44c0e67b141 data/atarisnewmegamodproject/advancement/recipes/redstone/bismuth_button.json
 49ba6ad9fa3006341ed99acbb61e4517c9d53529 data/atarisnewmegamodproject/advancement/recipes/redstone/bismuth_door.json
 e032c75093dbaf3d2bd017de29e2be10911e26c6 data/atarisnewmegamodproject/advancement/recipes/redstone/bismuth_fence_gate.json
@@ -41,3 +42,4 @@ e260370140cf8160c7e24b3da3da12cf628b514b data/atarisnewmegamodproject/recipe/bis
 fe303c6b69c70cea7000fdf2ea0a380484474053 data/atarisnewmegamodproject/recipe/kaupen.json
 e1fca7b36196bc46e880f272db855da77bc0afde data/atarisnewmegamodproject/recipe/magma_mace.json
 d88333e20c82e6133c2b4f834d8cc480970e1bd3 data/atarisnewmegamodproject/recipe/redstone_axe.json
+20f78e6e4f554610515c1656d4ee1f847ab5df26 data/atarisnewmegamodproject/recipe/swissarmyknife.json

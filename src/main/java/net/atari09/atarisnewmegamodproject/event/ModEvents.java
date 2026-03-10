@@ -6,6 +6,7 @@ import net.atari09.atarisnewmegamodproject.block.custom.LogMineBlock;
 import net.atari09.atarisnewmegamodproject.block.entity.LogMineBlockEntity;
 import net.atari09.atarisnewmegamodproject.item.ModItems;
 import net.atari09.atarisnewmegamodproject.item.custom.HammerItem;
+import net.atari09.atarisnewmegamodproject.item.custom.SwissarmyknifeItem;
 import net.atari09.atarisnewmegamodproject.potion.ModPotions;
 import net.atari09.atarisnewmegamodproject.villager.ModVillagers;
 import net.minecraft.client.resources.sounds.Sound;
@@ -20,6 +21,7 @@ import net.minecraft.world.entity.animal.Sheep;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionBrewing;
@@ -35,6 +37,7 @@ import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
+import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.neoforge.event.village.VillagerTradesEvent;
 import net.neoforged.neoforge.event.village.WandererTradesEvent;
 
@@ -144,6 +147,4 @@ public class ModEvents {
 
         }
     }
-
-
 }

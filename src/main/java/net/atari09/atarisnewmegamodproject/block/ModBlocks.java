@@ -146,7 +146,23 @@ public class ModBlocks {
             ()->new GrowthChamberBlock(BlockBehaviour.Properties.of()));
 
     public static final DeferredBlock<Block> LOGMINE = BLOCKS.register("logmine",
-            ()->new LogMineBlock(BlockBehaviour.Properties.of().noOcclusion().strength(2f,100f)));
+            ()->new LogMineBlock(BlockBehaviour.Properties.of().noOcclusion().strength(2f,100f),0));
+    public static final DeferredBlock<Block> LOGMINE_SPRUCE = BLOCKS.register("logmine_spruce",
+            ()->new LogMineBlock(BlockBehaviour.Properties.of().noOcclusion().strength(2f,100f),3));
+    public static final DeferredBlock<Block> LOGMINE_BIRCH = BLOCKS.register("logmine_birch",
+            ()->new LogMineBlock(BlockBehaviour.Properties.of().noOcclusion().strength(2f,100f),2));
+    public static final DeferredBlock<Block> LOGMINE_CHERRY = BLOCKS.register("logmine_cherry",
+            ()->new LogMineBlock(BlockBehaviour.Properties.of().noOcclusion().strength(2f,100f),4));
+    public static final DeferredBlock<Block> LOGMINE_MANGROVE = BLOCKS.register("logmine_mangrove",
+            ()->new LogMineBlock(BlockBehaviour.Properties.of().noOcclusion().strength(2f,100f),5));
+    public static final DeferredBlock<Block> LOGMINE_DARKOAK = BLOCKS.register("logmine_darkoak",
+            ()->new LogMineBlock(BlockBehaviour.Properties.of().noOcclusion().strength(2f,100f),1));
+    public static final DeferredBlock<Block> LOGMINE_ACACIA = BLOCKS.register("logmine_acacia",
+            ()->new LogMineBlock(BlockBehaviour.Properties.of().noOcclusion().strength(2f,100f),7));
+    public static final DeferredBlock<Block> LOGMINE_JUNGLE = BLOCKS.register("logmine_jungle",
+            ()->new LogMineBlock(BlockBehaviour.Properties.of().noOcclusion().strength(2f,100f),6));
+
+
 
 
     private static <T extends Block> DeferredBlock registerBlock(String name, Supplier<T> block) {

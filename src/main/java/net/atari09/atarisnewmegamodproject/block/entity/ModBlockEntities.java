@@ -23,7 +23,28 @@ public class ModBlockEntities {
 
     public static final Supplier<BlockEntityType<LogMineBlockEntity>> LOGMINE_BE =
             BLOCK_ENTITIES.register("logmine_be",()->BlockEntityType.Builder.of(
-                    LogMineBlockEntity::new, ModBlocks.LOGMINE.get()).build(null));
+                    (pos,state) -> new LogMineBlockEntity(pos,state,0), ModBlocks.LOGMINE.get()).build(null));
+    public static final Supplier<BlockEntityType<LogMineBlockEntity>> LOGMINE_BE_ACACIA =
+            BLOCK_ENTITIES.register("logmine_be_acacia",()->BlockEntityType.Builder.of(
+                    (pos,state) -> new LogMineBlockEntity(pos,state,7), ModBlocks.LOGMINE_ACACIA.get()).build(null));
+    public static final Supplier<BlockEntityType<LogMineBlockEntity>> LOGMINE_BE_SPRUCE =
+            BLOCK_ENTITIES.register("logmine_be_spruce",()->BlockEntityType.Builder.of(
+                    (pos,state) -> new LogMineBlockEntity(pos,state,3), ModBlocks.LOGMINE_SPRUCE.get()).build(null));
+    public static final Supplier<BlockEntityType<LogMineBlockEntity>> LOGMINE_BE_JUNGLE =
+            BLOCK_ENTITIES.register("logmine_be_jungle",()->BlockEntityType.Builder.of(
+                    (pos,state) -> new LogMineBlockEntity(pos,state,6), ModBlocks.LOGMINE_JUNGLE.get()).build(null));
+    public static final Supplier<BlockEntityType<LogMineBlockEntity>> LOGMINE_BE_BIRCH =
+            BLOCK_ENTITIES.register("logmine_be_birch",()->BlockEntityType.Builder.of(
+                    (pos,state) -> new LogMineBlockEntity(pos,state,2), ModBlocks.LOGMINE_BIRCH.get()).build(null));
+    public static final Supplier<BlockEntityType<LogMineBlockEntity>> LOGMINE_BE_CHERRY =
+            BLOCK_ENTITIES.register("logmine_be_cherry",()->BlockEntityType.Builder.of(
+                    (pos,state) -> new LogMineBlockEntity(pos,state,4), ModBlocks.LOGMINE_CHERRY.get()).build(null));
+    public static final Supplier<BlockEntityType<LogMineBlockEntity>> LOGMINE_BE_MANGROVE =
+            BLOCK_ENTITIES.register("logmine_be_mangrove",()->BlockEntityType.Builder.of(
+                    (pos,state) -> new LogMineBlockEntity(pos,state,5), ModBlocks.LOGMINE_MANGROVE.get()).build(null));
+    public static final Supplier<BlockEntityType<LogMineBlockEntity>> LOGMINE_BE_DARKOAK =
+            BLOCK_ENTITIES.register("logmine_be_darkoak",()->BlockEntityType.Builder.of(
+                    (pos,state) -> new LogMineBlockEntity(pos,state,1), ModBlocks.LOGMINE_DARKOAK.get()).build(null));
 
 
     public static void register(IEventBus eventBus){

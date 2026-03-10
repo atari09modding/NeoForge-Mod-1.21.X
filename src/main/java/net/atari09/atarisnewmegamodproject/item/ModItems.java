@@ -5,20 +5,26 @@ import net.atari09.atarisnewmegamodproject.block.ModBlocks;
 import net.atari09.atarisnewmegamodproject.entity.ModEntities;
 import net.atari09.atarisnewmegamodproject.item.custom.*;
 import net.atari09.atarisnewmegamodproject.sound.ModSounds;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.item.PrimedTnt;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.CustomData;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
@@ -156,6 +162,45 @@ public class ModItems {
 
     public static final DeferredItem<Item> LOGMINE_BLOCK_ITEM = ITEMS.register("logmine_block_item",
             ()->new LogMineBlockItem(ModBlocks.LOGMINE.get(), new Item.Properties()));
+
+    public static final DeferredItem<SwissarmyknifeItem> SWISSARMYKNIFE = ITEMS.register("swissarmyknife",
+            ()->new SwissarmyknifeItem(new Item.Properties().stacksTo(1).durability(2000)));
+
+    public static final DeferredItem<Item> NUKEROD = ITEMS.register("nukerod",
+            ()-> new Item(new Item.Properties().stacksTo(1)){
+                @Override
+                public InteractionResult useOn(UseOnContext context) {
+                    BlockPos pos = context.getClickedPos();
+                    Level level = context.getLevel();
+                    if(!level.isClientSide) {
+                        for(float momentum = 0.2f; momentum <= 2f; momentum += 0.1f){
+                            for(float x = -0.1f;x <= momentum+0.1f; x += 0.1f){
+                                float z = (float) Math.pow((Math.pow(momentum,2)-Math.pow(x,2)),0.5);
+                                PrimedTnt tnt = new PrimedTnt(EntityType.TNT, level);
+                                tnt.setPos(new Vec3(pos.getX(), pos.getY()+10, pos.getZ()));
+                                tnt.setDeltaMovement(x,0,z);
+                                level.addFreshEntity(tnt);
+
+                                tnt = new PrimedTnt(EntityType.TNT, level);
+                                tnt.setPos(new Vec3(pos.getX(), pos.getY()+10, pos.getZ()));
+                                tnt.setDeltaMovement(x,0,-z);
+                                level.addFreshEntity(tnt);
+
+                                tnt = new PrimedTnt(EntityType.TNT, level);
+                                tnt.setPos(new Vec3(pos.getX(), pos.getY()+10, pos.getZ()));
+                                tnt.setDeltaMovement(-x,0,z);
+                                level.addFreshEntity(tnt);
+
+                                tnt = new PrimedTnt(EntityType.TNT, level);
+                                tnt.setPos(new Vec3(pos.getX(), pos.getY()+10, pos.getZ()));
+                                tnt.setDeltaMovement(-x,0,-z);
+                                level.addFreshEntity(tnt);
+                            }
+                        }
+                    }
+                    return super.useOn(context);
+                }
+            });
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

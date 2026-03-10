@@ -22,6 +22,7 @@ import net.atari09.atarisnewmegamodproject.screen.custom.PedestalScreen;
 import net.atari09.atarisnewmegamodproject.sound.ModSounds;
 import net.atari09.atarisnewmegamodproject.util.ModItemProperties;
 import net.atari09.atarisnewmegamodproject.villager.ModVillagers;
+import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.resources.ResourceLocation;
@@ -153,7 +154,14 @@ public class AtariMod {
         @SubscribeEvent
         public static void registerBER(EntityRenderersEvent.RegisterRenderers event){
             event.registerBlockEntityRenderer(ModBlockEntities.PEDESTAL_BE.get(), PedestalBlockEntityRenderer::new);
-            event.registerBlockEntityRenderer(ModBlockEntities.LOGMINE_BE.get(), LogMineBlockRenderer::new);
+            event.registerBlockEntityRenderer(ModBlockEntities.LOGMINE_BE.get(), context -> new LogMineBlockRenderer(context, 0));
+            event.registerBlockEntityRenderer(ModBlockEntities.LOGMINE_BE_DARKOAK.get(), context -> new LogMineBlockRenderer(context, 1));
+            event.registerBlockEntityRenderer(ModBlockEntities.LOGMINE_BE_BIRCH.get(), context -> new LogMineBlockRenderer(context, 2));
+            event.registerBlockEntityRenderer(ModBlockEntities.LOGMINE_BE_SPRUCE.get(), context -> new LogMineBlockRenderer(context, 3));
+            event.registerBlockEntityRenderer(ModBlockEntities.LOGMINE_BE_CHERRY.get(), context -> new LogMineBlockRenderer(context, 4));
+            event.registerBlockEntityRenderer(ModBlockEntities.LOGMINE_BE_MANGROVE.get(), context -> new LogMineBlockRenderer(context, 5));
+            event.registerBlockEntityRenderer(ModBlockEntities.LOGMINE_BE_JUNGLE.get(), context -> new LogMineBlockRenderer(context, 6));
+            event.registerBlockEntityRenderer(ModBlockEntities.LOGMINE_BE_ACACIA.get(), context -> new LogMineBlockRenderer(context, 7));
         }
 
         @SubscribeEvent

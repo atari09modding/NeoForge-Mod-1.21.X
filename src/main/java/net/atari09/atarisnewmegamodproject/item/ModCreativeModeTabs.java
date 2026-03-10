@@ -63,6 +63,9 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.PIRANHA_BUCKET);
                         output.accept(ModItems.PIRANHA_SPAWN_EGG);
 
+                        output.accept(ModItems.SWISSARMYKNIFE);
+
+                        output.accept(ModItems.NUKEROD);
 
                     })
                     .build());

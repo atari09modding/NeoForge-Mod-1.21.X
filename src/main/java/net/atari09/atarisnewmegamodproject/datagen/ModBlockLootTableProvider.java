@@ -10,6 +10,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
@@ -56,6 +57,16 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.BISMUTH_DOOR.get());
         dropSelf(ModBlocks.BISMUTH_TRAPDOOR.get());
         dropSelf(ModBlocks.BISMUTH_LAMP.get());
+
+        dropOther(ModBlocks.LOGMINE.get(), Items.AIR);
+        dropOther(ModBlocks.LOGMINE_ACACIA.get(), Items.AIR);
+        dropOther(ModBlocks.LOGMINE_JUNGLE.get(), Items.AIR);
+        dropOther(ModBlocks.LOGMINE_MANGROVE.get(), Items.AIR);
+        dropOther(ModBlocks.LOGMINE_CHERRY.get(), Items.AIR);
+        dropOther(ModBlocks.LOGMINE_BIRCH.get(), Items.AIR);
+        dropOther(ModBlocks.LOGMINE_DARKOAK.get(), Items.AIR);
+        dropOther(ModBlocks.LOGMINE_SPRUCE.get(), Items.AIR);
+
 
         add(ModBlocks.BISMUTH_DOOR.get(),
                 block -> createDoorTable(ModBlocks.BISMUTH_DOOR.get()));
