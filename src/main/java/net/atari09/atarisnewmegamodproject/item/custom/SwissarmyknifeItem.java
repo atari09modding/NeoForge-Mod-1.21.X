@@ -52,7 +52,7 @@ public class SwissarmyknifeItem extends DiggerItem implements GeoItem {
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this,"controller",1,this::predicate));
+        controllers.add(new AnimationController<>(this,"controller",10,this::predicate));
     }
 
     private PlayState predicate(AnimationState<SwissarmyknifeItem> state) {
