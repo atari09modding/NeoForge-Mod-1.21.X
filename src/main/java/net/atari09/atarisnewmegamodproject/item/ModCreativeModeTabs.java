@@ -67,6 +67,8 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModItems.NUKEROD);
 
+                        output.accept(ModItems.JETPACKCHESTPLATE);
+
                     })
                     .build());
     public static final Supplier<CreativeModeTab> BISMTUH_BLOCKS_TAB = CREATIVE_MODE_TAB.register("bismuth_blocks_tab",

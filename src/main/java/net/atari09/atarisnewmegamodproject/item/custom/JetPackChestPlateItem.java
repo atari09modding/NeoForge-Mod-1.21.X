@@ -23,6 +23,7 @@ import java.util.function.Consumer;
 
 public class JetPackChestPlateItem extends ElytraItem implements GeoItem {
     private AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
+    private final JetPackChestPlateItem animatable = this;
     public JetPackChestPlateItem(Properties properties) {
         super(properties);
     }
@@ -36,7 +37,7 @@ public class JetPackChestPlateItem extends ElytraItem implements GeoItem {
     private PlayState predicate(AnimationState<JetPackChestPlateItem> state) {
         Entity entity = state.getData(DataTickets.ENTITY);
 
-        if(entity != null && isFlying(entity) && entity instanceof Player){
+        if(entity != null && isFlying(entity)){
             return state.setAndContinue(RawAnimation.begin().thenPlay("turn_on").thenLoop("on"));
         } else {
             return state.setAndContinue(RawAnimation.begin().thenPlay("turn_off").thenLoop("off"));
@@ -60,7 +61,7 @@ public class JetPackChestPlateItem extends ElytraItem implements GeoItem {
             @Override
             public <T extends LivingEntity> HumanoidModel<?> getGeoArmorRenderer(@Nullable T livingEntity, ItemStack itemStack, @Nullable EquipmentSlot equipmentSlot, @Nullable HumanoidModel<T> original) {
                 if (this.renderer == null) {
-                    this.renderer = new JetPackChestPlateRenderer(this.renderer.getAnimatable());
+                    this.renderer = new JetPackChestPlateRenderer(animatable);
                 }
                 return this.renderer;
 

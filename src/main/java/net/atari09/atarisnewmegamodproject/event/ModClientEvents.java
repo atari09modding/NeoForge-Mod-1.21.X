@@ -2,9 +2,12 @@ package net.atari09.atarisnewmegamodproject.event;
 
 import net.atari09.atarisnewmegamodproject.AtariMod;
 import net.atari09.atarisnewmegamodproject.item.ModItems;
+import net.atari09.atarisnewmegamodproject.item.custom.JetPackChestPlateItem;
 import net.atari09.atarisnewmegamodproject.util.KeyBinding;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -38,8 +41,15 @@ public class ModClientEvents {
 
     @SubscribeEvent
     public static void onKeyInput(InputEvent.Key event){
-        if(KeyBinding.DRINKING_KEY.consumeClick()){
+        if(KeyBinding.DRINKING_KEY.consumeClick()) {
             Minecraft.getInstance().player.sendSystemMessage(Component.literal("Drinking Water"));
+        }
+        if (KeyBinding.JETPACKCHESTPLATE_BOOST_KEY.consumeClick()){
+            if(Minecraft.getInstance().player.getItemBySlot(EquipmentSlot.CHEST).getItem() instanceof JetPackChestPlateItem && Minecraft.getInstance().player.isFallFlying()) {
+                Vec3 movement = Minecraft.getInstance().player.getDeltaMovement();
+                double factor = 1 / movement.length();
+                Minecraft.getInstance().player.setDeltaMovement(movement.add(movement.scale(factor)));
+            }
         }
     }
 }
