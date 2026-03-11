@@ -203,7 +203,7 @@ public class ModItems {
             });
 
     public static final DeferredItem<Item> JETPACKCHESTPLATE = ITEMS.register("jetpackchestplate",
-            () -> new JetPackChestPlateItem(new Item.Properties().durability(3000)));
+            () -> new JetPackChestPlateItem(new Item.Properties().durability(3000).stacksTo(1)));
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

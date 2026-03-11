@@ -54,5 +54,11 @@
     "sounds": [
       "atarisnewmegamodproject:piranha_attack"
     ]
+  },
+  "woosh": {
+    "subtitle": "sounds.atarisnewmegamodproject.woosh",
+    "sounds": [
+      "atarisnewmegamodproject:woosh"
+    ]
   }
 }

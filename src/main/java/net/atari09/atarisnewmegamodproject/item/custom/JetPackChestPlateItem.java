@@ -2,14 +2,19 @@ package net.atari09.atarisnewmegamodproject.item.custom;
 
 import net.atari09.atarisnewmegamodproject.item.client.JetPackChestPlateRenderer;
 import net.atari09.atarisnewmegamodproject.item.client.SwissArmyKnifeRenderer;
+import net.atari09.atarisnewmegamodproject.util.KeyBinding;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ElytraItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.ItemAttributeModifiers;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoAnimatable;
 import software.bernie.geckolib.animatable.GeoItem;
@@ -19,6 +24,7 @@ import software.bernie.geckolib.animatable.instance.SingletonAnimatableInstanceC
 import software.bernie.geckolib.animation.*;
 import software.bernie.geckolib.constant.DataTickets;
 
+import java.util.List;
 import java.util.function.Consumer;
 
 public class JetPackChestPlateItem extends ElytraItem implements GeoItem {
@@ -38,9 +44,9 @@ public class JetPackChestPlateItem extends ElytraItem implements GeoItem {
         Entity entity = state.getData(DataTickets.ENTITY);
 
         if(entity != null && isFlying(entity)){
-            return state.setAndContinue(RawAnimation.begin().thenPlay("turn_on").thenLoop("on"));
+            return state.setAndContinue(RawAnimation.begin().thenPlay("turn_on").thenPlay("on").thenLoop("on"));
         } else {
-            return state.setAndContinue(RawAnimation.begin().thenPlay("turn_off").thenLoop("off"));
+            return state.setAndContinue(RawAnimation.begin().thenPlay("turn_off").thenPlay("off").thenLoop("off"));
         }
     }
 
@@ -67,5 +73,16 @@ public class JetPackChestPlateItem extends ElytraItem implements GeoItem {
 
             }
         });
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+        if(Screen.hasShiftDown()){
+            tooltipComponents.add(Component.literal("Press §4" + KeyBinding.JETPACKCHESTPLATE_BOOST_KEY.getKey().getName() + "§r to boost."));
+        } else  {
+            tooltipComponents.add(Component.literal("Press §3Shift§r for more information."));
+        }
+
+        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
 }

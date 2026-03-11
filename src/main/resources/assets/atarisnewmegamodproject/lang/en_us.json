@@ -127,5 +127,6 @@
   "sounds.atarisnewmegamodproject.piranha_attack" : "GuPiranha Attacks",
 
   "key.category.atarisnewmegamodproject.atari" : "Ataris New Megamodproject",
-  "key.atarisnewmegamodproject.drink_water" : "Drink Water"
+  "key.atarisnewmegamodproject.drink_water" : "Drink Water",
+  "key.atarisnewmegamodproject.jetpackchestplate_boost" : "Jetpackchestplate Boost"
 }

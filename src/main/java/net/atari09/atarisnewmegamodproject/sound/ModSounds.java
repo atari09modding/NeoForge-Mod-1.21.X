@@ -28,6 +28,8 @@ public class ModSounds {
 
     public static final Supplier<SoundEvent> PIRANHA_ATTACK = registerSoundEvent("piranha_attack");
 
+    public static final Supplier<SoundEvent> WOOSH = registerSoundEvent("woosh");
+
 
     public static final DeferredSoundType MAGIC_BLOCK_SOUNDS = new DeferredSoundType(1f,1f,
             ModSounds.MAGIC_BLOCK_BREAK, ModSounds.MAGIC_BLOCK_STEP, ModSounds.MAGIC_BLOCK_PLACE, ModSounds.MAGIC_BLOCK_HIT, ModSounds.MAGIC_BLOCK_FALL);

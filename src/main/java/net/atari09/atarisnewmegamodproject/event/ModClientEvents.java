@@ -3,10 +3,16 @@ package net.atari09.atarisnewmegamodproject.event;
 import net.atari09.atarisnewmegamodproject.AtariMod;
 import net.atari09.atarisnewmegamodproject.item.ModItems;
 import net.atari09.atarisnewmegamodproject.item.custom.JetPackChestPlateItem;
+import net.atari09.atarisnewmegamodproject.sound.ModSounds;
 import net.atari09.atarisnewmegamodproject.util.KeyBinding;
 import net.minecraft.client.Minecraft;
+import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -37,6 +43,7 @@ public class ModClientEvents {
     @SubscribeEvent
     public static void onKeyRegister(RegisterKeyMappingsEvent event){
         event.register(KeyBinding.DRINKING_KEY);
+        event.register(KeyBinding.JETPACKCHESTPLATE_BOOST_KEY);
     }
 
     @SubscribeEvent
@@ -45,10 +52,15 @@ public class ModClientEvents {
             Minecraft.getInstance().player.sendSystemMessage(Component.literal("Drinking Water"));
         }
         if (KeyBinding.JETPACKCHESTPLATE_BOOST_KEY.consumeClick()){
-            if(Minecraft.getInstance().player.getItemBySlot(EquipmentSlot.CHEST).getItem() instanceof JetPackChestPlateItem && Minecraft.getInstance().player.isFallFlying()) {
-                Vec3 movement = Minecraft.getInstance().player.getDeltaMovement();
+            Player player = Minecraft.getInstance().player;
+            if(player != null
+                    && player.getItemBySlot(EquipmentSlot.CHEST).getItem() instanceof JetPackChestPlateItem
+                    && player.isFallFlying() && !(player.getDeltaMovement().length() > 3d)) {
+                Vec3 movement = player.getLookAngle();
                 double factor = 1 / movement.length();
-                Minecraft.getInstance().player.setDeltaMovement(movement.add(movement.scale(factor)));
+                player.setDeltaMovement(movement.add(movement.scale(factor)));
+                player.playNotifySound(ModSounds.WOOSH.get(), SoundSource.PLAYERS, 3f, 1f);
+                player.level().addParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE, player.getX(), player.getY(), player.getZ(), 0, 0.5d, 0);
             }
         }
     }
