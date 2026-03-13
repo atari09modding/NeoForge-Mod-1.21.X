@@ -44,9 +44,9 @@ public class JetPackChestPlateItem extends ElytraItem implements GeoItem {
         Entity entity = state.getData(DataTickets.ENTITY);
 
         if(entity != null && isFlying(entity)){
-            return state.setAndContinue(RawAnimation.begin().thenPlay("turn_on").thenPlay("on").thenLoop("on"));
+            return state.setAndContinue(RawAnimation.begin().thenPlay("turn_on").thenLoop("on"));
         } else {
-            return state.setAndContinue(RawAnimation.begin().thenPlay("turn_off").thenPlay("off").thenLoop("off"));
+            return state.setAndContinue(RawAnimation.begin().thenPlay("turn_off").thenLoop("off"));
         }
     }
 
@@ -78,7 +78,7 @@ public class JetPackChestPlateItem extends ElytraItem implements GeoItem {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
         if(Screen.hasShiftDown()){
-            tooltipComponents.add(Component.literal("Press §4" + KeyBinding.JETPACKCHESTPLATE_BOOST_KEY.getKey().getName() + "§r to boost."));
+            tooltipComponents.add(Component.literal("Press §4" + KeyBinding.JETPACKCHESTPLATE_BOOST_KEY.getKey().getDisplayName().getString() + "§r to boost."));
         } else  {
             tooltipComponents.add(Component.literal("Press §3Shift§r for more information."));
         }

@@ -205,6 +205,9 @@ public class ModItems {
     public static final DeferredItem<Item> JETPACKCHESTPLATE = ITEMS.register("jetpackchestplate",
             () -> new JetPackChestPlateItem(new Item.Properties().durability(3000).stacksTo(1)));
 
+    public static final DeferredItem<Item> DRAGONFLY_SPAWN_EGG = ITEMS.register("dragonfly_spawn_egg",
+            ()->new SpawnEggItem(ModEntities.DRAGONFLY.get(),0x1e7d6c,0x1be3d9, new Item.Properties()));
+
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
     }

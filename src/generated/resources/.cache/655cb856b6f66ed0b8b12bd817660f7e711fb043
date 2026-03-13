@@ -1,4 +1,4 @@
-// 1.21.1	2026-02-07T18:50:59.6059704	Item Models: atarisnewmegamodproject
+// 1.21.1	2026-03-12T14:47:02.4395718	Item Models: atarisnewmegamodproject
 52dc40931a5601e0bdd3b5a12383ba23e054629c assets/atarisnewmegamodproject/models/item/bar_brawl_music_disc.json
 12db004ee720434c8c6a99f6efc2f34b8051b007 assets/atarisnewmegamodproject/models/item/bismuth.json
 15eb5ce4b6bb7e9fc0bbb7a274da782df4693390 assets/atarisnewmegamodproject/models/item/bismuth_axe.json
@@ -58,6 +58,7 @@ e86a1e1e0db255f5851840f583240cae177ed3dd assets/atarisnewmegamodproject/models/i
 665ececdf026e6d4ebaf5b3f2de3246c0979e4a9 assets/atarisnewmegamodproject/models/item/bismuth_wall.json
 b1e1a8896ec296817e326e8fd1820102a40b93ad assets/atarisnewmegamodproject/models/item/bloodwood_sapling.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/atarisnewmegamodproject/models/item/brok_spawn_egg.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/atarisnewmegamodproject/models/item/dragonfly_spawn_egg.json
 9a9868424c292932669e91706cc05de70f1b095c assets/atarisnewmegamodproject/models/item/frostfire_ice.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/atarisnewmegamodproject/models/item/gecko_spawn_egg.json
 ce9f3abc6198ec334b01dfd7608dc46abc7ef935 assets/atarisnewmegamodproject/models/item/goji_berries.json

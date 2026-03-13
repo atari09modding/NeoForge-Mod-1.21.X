@@ -69,6 +69,8 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModItems.JETPACKCHESTPLATE);
 
+                        output.accept(ModItems.DRAGONFLY_SPAWN_EGG);
+
                     })
                     .build());
     public static final Supplier<CreativeModeTab> BISMTUH_BLOCKS_TAB = CREATIVE_MODE_TAB.register("bismuth_blocks_tab",

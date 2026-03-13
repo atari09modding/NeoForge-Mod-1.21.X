@@ -1,0 +1,2 @@
+Photon API Licensed under CC BY-NC-SA 4.0 used in the mod by KilaBash: https://github.com/Low-Drag-MC/Photon?tab=readme-ov-file
+LDlib API licensed under LGPL-3.0 used in the mod by KilaBash: https://github.com/Low-Drag-MC/LDLib2?tab=LGPL-3.0-1-ov-file

@@ -28,7 +28,7 @@
 			}
 		},
 		"turn_off": {
-			"loop": "hold_on_last_frame",
+			"loop": "play_once",
 			"animation_length": 0.5,
 			"bones": {
 				"wing_r": {
@@ -83,7 +83,7 @@
 			}
 		},
 		"turn_on": {
-			"loop": "hold_on_last_frame",
+			"loop": "play_once",
 			"animation_length": 0.5,
 			"bones": {
 				"wing_r": {

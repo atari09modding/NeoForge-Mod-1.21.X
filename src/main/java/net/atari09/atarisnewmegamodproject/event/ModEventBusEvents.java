@@ -6,6 +6,7 @@ import net.atari09.atarisnewmegamodproject.entity.client.BrokModel;
 import net.atari09.atarisnewmegamodproject.entity.client.GeckoModel;
 import net.atari09.atarisnewmegamodproject.entity.client.TomahawkProjectileModel;
 import net.atari09.atarisnewmegamodproject.entity.custom.BrokEntity;
+import net.atari09.atarisnewmegamodproject.entity.custom.DragonflyEntity;
 import net.atari09.atarisnewmegamodproject.entity.custom.GeckoEntity;
 import net.atari09.atarisnewmegamodproject.entity.custom.PiranhaEntity;
 import net.minecraft.world.entity.SpawnPlacementTypes;
@@ -31,6 +32,7 @@ public class ModEventBusEvents {
         event.put(ModEntities.GECKO.get(), GeckoEntity.createAttributtes().build());
         event.put(ModEntities.BROK.get(), BrokEntity.createAttributtes().build());
         event.put(ModEntities.PIRANHA.get(), PiranhaEntity.createAttributtes().build());
+        event.put(ModEntities.DRAGONFLY.get(), DragonflyEntity.createAttributtes().build());
     }
 
     @SubscribeEvent

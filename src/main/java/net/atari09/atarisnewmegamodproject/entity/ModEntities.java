@@ -43,6 +43,10 @@ public class ModEntities {
             ENTITY_TYPES.register("piranha",()->EntityType.Builder.of(PiranhaEntity::new, MobCategory.WATER_CREATURE)
                     .sized(0.6f,0.4f).build("piranha"));
 
+    public static final Supplier<EntityType<DragonflyEntity>> DRAGONFLY =
+            ENTITY_TYPES.register("dragonfly",()->EntityType.Builder.of(DragonflyEntity::new, MobCategory.AMBIENT)
+                    .sized(0.4f,0.2f).build("dragonfly"));
+
     public static void register(IEventBus eventBus){
         ENTITY_TYPES.register(eventBus);
     }

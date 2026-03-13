@@ -38,6 +38,9 @@ public class ModClientEvents {
             fovModifier *= 0.5f - deltaTicks * 0.15f;
             event.setNewFovModifier(fovModifier);
         }
+        if(event.getPlayer().isFallFlying() && event.getPlayer().getItemBySlot(EquipmentSlot.CHEST).getItem() instanceof JetPackChestPlateItem){
+            event.setNewFovModifier(1.5f);
+        }
     }
 
     @SubscribeEvent

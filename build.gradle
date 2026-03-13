@@ -160,6 +160,8 @@ dependencies {
     dependencies {
         implementation "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
         implementation("com.eliotlash.mclib:mclib:20")
+        implementation files('libs/photon-neoforge-1.21.1-2.1.4.jar')
+        implementation files('libs/ldlib2-neoforge-1.21.1-2.2.2-all.jar')
     }
 }
 

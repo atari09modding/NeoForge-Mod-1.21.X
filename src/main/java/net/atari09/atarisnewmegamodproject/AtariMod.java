@@ -81,7 +81,6 @@ public class AtariMod {
 
         ModCreativeModeTabs.register(modEventBus);
 
-
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
 
@@ -143,6 +142,7 @@ public class AtariMod {
             EntityRenderers.register(ModEntities.BROK.get(), BrokRenderer::new);
             EntityRenderers.register(ModEntities.BROK_STONE.get(), BrokStoneRenderer::new);
             EntityRenderers.register(ModEntities.PIRANHA.get(), PiranhaRenderer::new);
+            EntityRenderers.register(ModEntities.DRAGONFLY.get(), DragonflyRenderer::new);
 
         }
 
