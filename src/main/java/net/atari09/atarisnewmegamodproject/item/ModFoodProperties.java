@@ -9,4 +9,10 @@ public class ModFoodProperties {
             .fast().effect(() -> new MobEffectInstance(MobEffects.HEALTH_BOOST, 200), 0.2f).build();
 
     public static final FoodProperties GOJI_BERRY = new FoodProperties.Builder().nutrition(2).saturationModifier(0.15f).fast().build();
+
+    public static final FoodProperties BEER = new FoodProperties.Builder().nutrition(0).saturationModifier(0.15f).fast()
+            .effect(()->new MobEffectInstance(MobEffects.CONFUSION, 600),0.4f)
+            .effect(()->new MobEffectInstance(MobEffects.HEALTH_BOOST, 600), 0.9f)
+            .effect(()->new MobEffectInstance(MobEffects.DAMAGE_BOOST, 300, 6), 0.1f)
+            .build();
 }

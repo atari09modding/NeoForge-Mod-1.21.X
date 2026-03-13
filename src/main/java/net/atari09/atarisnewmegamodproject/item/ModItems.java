@@ -208,6 +208,14 @@ public class ModItems {
     public static final DeferredItem<Item> DRAGONFLY_SPAWN_EGG = ITEMS.register("dragonfly_spawn_egg",
             ()->new SpawnEggItem(ModEntities.DRAGONFLY.get(),0x1e7d6c,0x1be3d9, new Item.Properties()));
 
+    public static final DeferredItem<SwordItem> MSPAINTSWORD = ITEMS.register("mspaintsword",
+            ()->new SwordItem(Tiers.NETHERITE, new Item.Properties()
+                    .attributes(SwordItem.createAttributes(Tiers.NETHERITE,20f,7f))));
+
+    public static final DeferredItem<Item> BEER = ITEMS.register("beer",
+            ()->new Item(new Item.Properties().food(ModFoodProperties.BEER)));
+
+
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
     }

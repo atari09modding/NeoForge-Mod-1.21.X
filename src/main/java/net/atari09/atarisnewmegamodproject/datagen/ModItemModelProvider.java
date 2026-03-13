@@ -83,6 +83,8 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         handheldItem(ModItems.REDSTONE_AXE);
         handheldItem(ModItems.MAGMA_MACE);
+        handheldItem(ModItems.MSPAINTSWORD);
+
 
     }
 

@@ -7,6 +7,8 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
@@ -58,6 +60,12 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(Items.DIAMOND_SWORD)
                 .requires(Items.DIAMOND_SHOVEL)
                 .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT)).save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.MSPAINTSWORD.get(),1)
+                .requires(Items.PAPER)
+                .requires(Items.BRUSH)
+                .requires(Items.INK_SAC)
+                .unlockedBy("has_brush", has(Items.BRUSH)).save(recipeOutput);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.BISMUTH.get(),18)
                 .requires(ModBlocks.MAGIC_BLOCK)
