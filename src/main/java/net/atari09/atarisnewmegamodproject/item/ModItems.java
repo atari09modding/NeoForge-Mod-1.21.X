@@ -18,7 +18,6 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.PrimedTnt;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.item.context.UseOnContext;
@@ -26,10 +25,10 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -169,7 +168,7 @@ public class ModItems {
     public static final DeferredItem<Item> NUKEROD = ITEMS.register("nukerod",
             ()-> new Item(new Item.Properties().stacksTo(1)){
                 @Override
-                public InteractionResult useOn(UseOnContext context) {
+                public @NotNull InteractionResult useOn(UseOnContext context) {
                     BlockPos pos = context.getClickedPos();
                     Level level = context.getLevel();
                     if(!level.isClientSide) {
