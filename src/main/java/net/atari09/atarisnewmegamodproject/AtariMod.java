@@ -22,6 +22,8 @@ import net.atari09.atarisnewmegamodproject.screen.custom.PedestalScreen;
 import net.atari09.atarisnewmegamodproject.sound.ModSounds;
 import net.atari09.atarisnewmegamodproject.util.ModItemProperties;
 import net.atari09.atarisnewmegamodproject.villager.ModVillagers;
+import net.atari09.atarisnewmegamodproject.worldgen.biome.ModTerrablender;
+import net.atari09.atarisnewmegamodproject.worldgen.biome.surface.ModSurfaceRules;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ItemRenderer;
@@ -45,6 +47,7 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import software.bernie.geckolib.GeckoLib;
+import terrablender.api.SurfaceRuleManager;
 
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
@@ -103,10 +106,21 @@ public class AtariMod {
 
         ModRecipes.register(modEventBus);
 
+        ModTerrablender.registerBiomes();
+
+        //custom structures: https://www.youtube.com/watch?v=MDWb4Z7vxfw&t=428s
+        //  https://www.youtube.com/watch?v=gRCrb-_n-zE&list=PLKGarocXCE1HrC60yuTNTGRoZc6hf5Uvl&index=38
+        //  https://www.youtube.com/watch?v=xsGPFx5LaGA&list=PLKGarocXCE1HrC60yuTNTGRoZc6hf5Uvl&index=39
+        //also more stuff bout structures: https://github.com/TelepathicGrunt/StructureTutorialMod
+        //custom dimensions: https://www.youtube.com/watch?v=1MRL4zAcusU
+        //other useful tutorials not by kaupenjoe: https://www.youtube.com/@Kapitencraft/videos
+
 
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
+
+        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModSurfaceRules.makeRules());
 
     }
 
@@ -137,6 +151,7 @@ public class AtariMod {
 
             EntityRenderers.register(ModEntities.GECKO.get(), GeckoRenderer::new);
             EntityRenderers.register(ModEntities.TOMAHAWK.get(), TomahawkProjectileRenderer::new);
+            EntityRenderers.register(ModEntities.NUCLEAR_GRENADE_PROJECTILE.get(), NuclearGrenadeProjectileRenderer::new);
             EntityRenderers.register(ModEntities.CHAIR_ENTITY.get(), ChairRenderer::new);
             EntityRenderers.register(ModEntities.MAGIC_PROJECTILE.get(), MagicProjectileRenderer::new);
             EntityRenderers.register(ModEntities.BROK.get(), BrokRenderer::new);

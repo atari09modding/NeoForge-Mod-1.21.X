@@ -4,6 +4,7 @@ import net.atari09.atarisnewmegamodproject.AtariMod;
 import net.atari09.atarisnewmegamodproject.entity.ModEntities;
 import net.atari09.atarisnewmegamodproject.entity.client.BrokModel;
 import net.atari09.atarisnewmegamodproject.entity.client.GeckoModel;
+import net.atari09.atarisnewmegamodproject.entity.client.NuclearGrenadeProjectileModel;
 import net.atari09.atarisnewmegamodproject.entity.client.TomahawkProjectileModel;
 import net.atari09.atarisnewmegamodproject.entity.custom.BrokEntity;
 import net.atari09.atarisnewmegamodproject.entity.custom.DragonflyEntity;
@@ -26,6 +27,8 @@ public class ModEventBusEvents {
         event.registerLayerDefinition(GeckoModel.LAYER_LOCATION, GeckoModel::createBodyLayer);
         event.registerLayerDefinition(TomahawkProjectileModel.LAYER_LOCATION, TomahawkProjectileModel::createBodyLayer);
         event.registerLayerDefinition(BrokModel.LAYER_LOCATION, BrokModel::createBodyLayer);
+        event.registerLayerDefinition(NuclearGrenadeProjectileModel.LAYER_LOCATION, NuclearGrenadeProjectileModel::createBodyLayer);
+
     }
     @SubscribeEvent
     public static void registerAttributes(EntityAttributeCreationEvent event){

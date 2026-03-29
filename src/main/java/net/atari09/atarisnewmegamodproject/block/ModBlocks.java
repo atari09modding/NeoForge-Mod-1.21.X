@@ -162,6 +162,9 @@ public class ModBlocks {
     public static final DeferredBlock<Block> LOGMINE_JUNGLE = BLOCKS.register("logmine_jungle",
             ()->new LogMineBlock(BlockBehaviour.Properties.of().noOcclusion().strength(2f,100f),6));
 
+    public static final DeferredBlock<Block> MODPORTAL = registerBlock("modportal",
+            ()->new ModPortalBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noOcclusion().noLootTable()));
+
 
 
 

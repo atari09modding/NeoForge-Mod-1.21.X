@@ -79,6 +79,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         saplingBlock(ModBlocks.BLOODWOOD_SAPLING);
 
         blockWithItem(ModBlocks.GROWTH_CHAMBER);
+        blockWithItem(ModBlocks.MODPORTAL);
     }
 
     private void saplingBlock(DeferredBlock<Block> blockRegistryObject) {

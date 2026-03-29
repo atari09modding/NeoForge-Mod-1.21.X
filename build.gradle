@@ -37,6 +37,13 @@ repositories {
             includeGroup("com.eliotlash.mclib")
         }
     }
+
+    maven {
+        name = "Illusive Soulworks maven"
+        url = "https://maven.theillusivec4.top/"
+    }
+    maven { url = 'https://maven.blamejared.com/' }
+    maven { url = 'https://maven.minecraftforge.net/' }
 }
 
 
@@ -163,6 +170,13 @@ dependencies {
         implementation files('libs/photon-neoforge-1.21.1-2.1.4.jar')
         implementation files('libs/ldlib2-neoforge-1.21.1-2.2.2-all.jar')
     }
+
+    implementation "team.lodestar.lodestone:lodestone:${lodestone_version}"
+    //1.20.1 Example: implementation "team.lodestar.lodestone:lodestone:1.20.1-1.4.2.62"
+    runtimeOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}"
+    compileOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}:api"
+
+    implementation "com.github.glitchfiend:TerraBlender-neoforge:${minecraft_version}-${terrablender_version}"
 }
 
 
@@ -179,7 +193,8 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
             mod_license            : mod_license,
             mod_version            : mod_version,
             mod_authors            : mod_authors,
-            mod_description        : mod_description
+            mod_description        : mod_description,
+            terrablender_version_range: terrablender_version_range
     ]
     inputs.properties replaceProperties
     expand replaceProperties

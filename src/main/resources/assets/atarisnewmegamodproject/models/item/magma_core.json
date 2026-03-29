@@ -2,8 +2,8 @@
 	"format_version": "1.21.11",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"particle": "atarisnewmegamodproject:item/magma_core.png",
-		"all": "atarisnewmegamodproject:item/magma_core.png"
+		"particle": "atarisnewmegamodproject:item/heavy_magma_core",
+		"all": "atarisnewmegamodproject:item/heavy_magma_core"
 	},
 	"elements": [
 		{

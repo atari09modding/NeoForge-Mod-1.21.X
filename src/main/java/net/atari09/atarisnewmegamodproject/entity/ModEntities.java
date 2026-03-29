@@ -47,6 +47,10 @@ public class ModEntities {
             ENTITY_TYPES.register("dragonfly",()->EntityType.Builder.of(DragonflyEntity::new, MobCategory.AMBIENT)
                     .sized(0.4f,0.2f).build("dragonfly"));
 
+    public static final Supplier<EntityType<NuclearGrenadeEntity>> NUCLEAR_GRENADE_PROJECTILE =
+            ENTITY_TYPES.register("nuclear_grenade_projectile", () -> EntityType.Builder.<NuclearGrenadeEntity>of(NuclearGrenadeEntity::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).build("nuclear_grenade_projectile"));
+
     public static void register(IEventBus eventBus){
         ENTITY_TYPES.register(eventBus);
     }

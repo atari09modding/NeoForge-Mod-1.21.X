@@ -73,6 +73,8 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModItems.MSPAINTSWORD);
 
+                        output.accept(ModItems.NUCLEARGRENADE);
+
                     })
                     .build());
     public static final Supplier<CreativeModeTab> BISMTUH_BLOCKS_TAB = CREATIVE_MODE_TAB.register("bismuth_blocks_tab",
@@ -115,6 +117,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.GROWTH_CHAMBER);
 
                         output.accept(ModItems.LOGMINE_BLOCK_ITEM);
+
+                        output.accept(ModBlocks.MODPORTAL);
 
                     })
                     .build());
