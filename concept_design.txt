@@ -6,6 +6,13 @@ smithing table:
 - different upgrading templates and new weapon types
 - json configurable upgrades
 - (mb with curious API bonus perks or so for necklaces)
+- NOTE:!!! for the itemrenderer you might have to use a geckolib renderer,
+    that 3d item models with 2d inventory texture can be displayed in 3d
+    and also change in the itemrenderer (find example for pedestal) ItemDisplayContext from Fixed to THIRD_PERSON_RIGHTHAND
+    also add of course an override to render function preserven super.render() to still render
+    the geckolib block but add the itemrender code from the pedestal to it
+    (mb try out doing an iterpolation for the item to spin and hover if finished like first it is laying and then it is like hovering if done)
+
 
 weapons -> features:
 - secondary special attacks
@@ -17,7 +24,7 @@ weapons -> features:
 weapon types:
 - better swords
 - better bows
-- battle axes made from axes
+- battleaxes made from axes
 - scythes made from hoe
 - new special weapons that do things that can be influenced by vanilla features
 - gauntlets
