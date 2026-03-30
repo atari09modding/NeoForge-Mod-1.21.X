@@ -78,7 +78,7 @@ public class AtariMod {
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
-        // Register our mod's ModConfigSpec so that FML can create and load the config file for us
+        // Register our mod's ModConfigSpec so that FML can create a nd load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
 
 

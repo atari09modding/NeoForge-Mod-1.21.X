@@ -1,0 +1,30 @@
+smithing table:
+- geckolib animated block, mb animated "villager but as smith" and item renderer for weapon beeing upgraded
+- separate smith for armor, with armor renderer if possible
+- wizard table with also animated "villager" for rare/powerful enchantments
+- dark magic to make EVIL enchantments or bind a demons soul to your weapon
+- different upgrading templates and new weapon types
+- json configurable upgrades
+- (mb with curious API bonus perks or so for necklaces)
+
+weapons -> features:
+- secondary special attacks
+- new enchantments -> with special wizard to get books cuz don't show up on enchantment table
+- special features like automatic poisoning or applying fire or...
+- demon possesion of your weapon
+- EVIL enchantments
+
+weapon types:
+- better swords
+- better bows
+- battle axes made from axes
+- scythes made from hoe
+- new special weapons that do things that can be influenced by vanilla features
+- gauntlets
+- (perk system?)
+
+armor:
+- armors for mob types or terrain
+- biome related buffs/debuffs
+- armor variants
+- mb special abilities for armor
