@@ -10,28 +10,73 @@ smithing table:
     that 3d item models with 2d inventory texture can be displayed in 3d
     and also change in the itemrenderer (find example for pedestal) ItemDisplayContext from Fixed to THIRD_PERSON_RIGHTHAND
     also add of course an override to render function preserven super.render() to still render
-    the geckolib block but add the itemrender code from the pedestal to it
-    (mb try out doing an iterpolation for the item to spin and hover if finished like first it is laying and then it is like hovering if done)
+    the geckolib block but add the itemrender code from the pedestal to it -> also example below
+    (mb try out doing an interpolation for the item to spin and hover if finished like first it is laying and then it is like hovering if done)
 
 
 weapons -> features:
 - secondary special attacks
 - new enchantments -> with special wizard to get books cuz don't show up on enchantment table
 - special features like automatic poisoning or applying fire or...
-- demon possesion of your weapon -> evil altar
+- demon possesion of your weapon -> evil altar -> mb something like that your weapon grows stronger with every kill you make
 - EVIL enchantments -> evil altar
 
 weapon types:
-- better swords
-- better bows
+- better swords (made from , obvieously, swords)
+- better bows (made from , obvieously, bows)
 - battleaxes made from axes
 - scythes made from hoe
 - new special weapons that do things that can be influenced by vanilla features
 - gauntlets
-- (perk system?)
+- (perk system? if yes then try out using getTooltip image to mb add perk icons on bottom of tooltip)
+- (custom maces but might be a bit OP)
 
 armor:
 - armors for mob types or terrain
 - biome related buffs/debuffs
+    example (yes it runs on both client and server):
+
+        if(level.getBiome(entity.blockPosition()).is(Biomes.FOREST)){
+            System.out.println("aaa");
+        }
 - armor variants
 - mb special abilities for armor
+
+more:
+- mb custom bosses to obtain some items for strong upgrades or so
+- mb also important: in ItemStack method get Tooltip lines (and the method add attribute Tooltips)
+
+
+
+
+
+
+
+here example of geckolib renderer that also renders an item:
+
+public class LogMineBlockRenderer extends GeoBlockRenderer<LogMineBlockEntity> {
+    public LogMineBlockRenderer(BlockEntityRendererProvider.Context context, int id) {
+        super(new LogMineModel(id));
+    }
+
+    @Override
+    public void render(LogMineBlockEntity animatable, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
+        super.render(animatable, partialTick, poseStack, bufferSource, packedLight, packedOverlay);
+        ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
+        ItemStack stack = new ItemStack(ModItems.RADIATION_STAFF.get());
+
+        poseStack.pushPose();
+        poseStack.translate(0.5f, 1.15f, 0.5f);
+        poseStack.scale(0.5f, 0.5f, 0.5f);
+
+        itemRenderer.renderStatic(stack, ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, getLightLevel(animatable.getLevel(),
+                animatable.getBlockPos()), OverlayTexture.NO_OVERLAY, poseStack, bufferSource, animatable.getLevel(), 1);
+        poseStack.popPose();
+    }
+
+    private int getLightLevel(Level level, BlockPos pos) {
+        int bLight = level.getBrightness(LightLayer.BLOCK, pos);
+        int sLight = level.getBrightness(LightLayer.SKY, pos);
+        return LightTexture.pack(bLight, sLight);
+    }
+}

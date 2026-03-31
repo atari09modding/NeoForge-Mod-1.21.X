@@ -114,6 +114,7 @@ public class AtariMod {
         //also more stuff bout structures: https://github.com/TelepathicGrunt/StructureTutorialMod
         //custom dimensions: https://www.youtube.com/watch?v=1MRL4zAcusU
         //other useful tutorials not by kaupenjoe: https://www.youtube.com/@Kapitencraft/videos
+        // custom HUD elements: https://github.com/neoforged/NeoForge/discussions/2991
 
 
     }
