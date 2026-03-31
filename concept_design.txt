@@ -45,12 +45,11 @@ armor:
 more:
 - mb custom bosses to obtain some items for strong upgrades or so
 - mb also important: in ItemStack method get Tooltip lines (and the method add attribute Tooltips)
+- kind of progression trees for weapons and armor
+- the whole thing should be like some weapon system similar to minecraft dungeons
 
-
-
-
-
-
+important:
+- if particles are used in animation of geckolib add particlekeyframecontroller and mb also look into soundkeyframecontroller -> https://github.com/bernie-g/geckolib/wiki/Keyframe-Triggers-(Geckolib4)
 
 here example of geckolib renderer that also renders an item:
 
