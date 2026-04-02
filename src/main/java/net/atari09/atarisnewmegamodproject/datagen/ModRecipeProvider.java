@@ -117,4 +117,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                     .save(recipeOutput, AtariMod.MOD_ID + ":" + getItemName(pResult) + pRecipeName + "_" + getItemName(itemlike));
         }
     }
+
+
+    //mb code datagen for growthchamber recipes here(following link should help):
+    //https://docs.neoforged.net/docs/resources/server/recipes/custom/
 }
