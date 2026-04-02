@@ -1,4 +1,4 @@
-// 1.21.1	2026-03-22T17:39:33.9816945	Recipes
+// 1.21.1	2026-04-02T12:11:31.256628	Recipes
 9af4ef686110e3687e915d9579bd769c13430882 data/atarisnewmegamodproject/advancement/recipes/building_blocks/bismuth_slab.json
 5e4a7a6fa9b08c53bb0eecb6d4c756b63771e7f8 data/atarisnewmegamodproject/advancement/recipes/building_blocks/bismuth_stairs.json
 f19562c6705494e23d4248c2839ef429b6af8c81 data/atarisnewmegamodproject/advancement/recipes/building_blocks/bismuth_wall.json
@@ -45,3 +45,5 @@ e1fca7b36196bc46e880f272db855da77bc0afde data/atarisnewmegamodproject/recipe/mag
 6fa84921d7e52b7d80ca40a036907d922927d166 data/atarisnewmegamodproject/recipe/mspaintsword.json
 d88333e20c82e6133c2b4f834d8cc480970e1bd3 data/atarisnewmegamodproject/recipe/redstone_axe.json
 20f78e6e4f554610515c1656d4ee1f847ab5df26 data/atarisnewmegamodproject/recipe/swissarmyknife.json
+cbcba1e95b637987bf7cce56daa0306622b654e0 data/minecraft/advancement/recipes/tnt.json
+70bd4efcfff067bad868e19efd1588163ffa5299 data/minecraft/recipe/tnt.json
