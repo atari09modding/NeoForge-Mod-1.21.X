@@ -17,7 +17,7 @@ smithing table:
 weapons -> features:
 - secondary special attacks
 - new enchantments -> with special wizard to get books cuz don't show up on enchantment table
-- special features like automatic poisoning or applying fire or...
+- special features like automatic poisoning or applying fire or so ... (also elemental variants -> see elements)
 - demon possesion of your weapon -> evil altar -> mb something like that your weapon grows stronger with every kill you make
 - EVIL enchantments -> evil altar
 
@@ -28,8 +28,8 @@ weapon types:
 - scythes made from hoe
 - new special weapons that do things that can be influenced by vanilla features
 - gauntlets
-- (perk system? if yes then try out using getTooltip image to mb add perk icons on bottom of tooltip)
-- (custom maces but might be a bit OP)
+- (perk system? if yes then try out using getTooltip image to mb add perk icons on bottom of tooltip -> already done in swissarmyknife item with custom tooltip component and custom renderer for tooltipcomponent)
+- custom maces (made from maces)
 
 armor:
 - armors for mob types or terrain
@@ -41,6 +41,43 @@ armor:
         }
 - armor variants
 - mb special abilities for armor
+
+elements for weapons:
+    kryonic (frost):
+        1: slows down enemys with frost effect
+        2: special freeze ability attack that creates ice pillars like evoker attack (i i'll find out how to code that) this makes enemys freeze like powder snow
+        3: deal more damage to players with frost
+    inferno/infernal(fire):
+        1: ignites enemy
+        2: ability to shoot fire charge(s)
+        3: deal more damage in to enemys on fire, also disable fire resistance from enemys
+    Noxious (toxic/poison):
+        1: poisons enemy
+        2: ability to spread poison spores in air
+        3: chance to infect target with wither effect
+    abyssal (void) (purple "enderman" color sceme):
+        1: ALWAYS infect target with void effect which i dont know what it should do yet
+        2: apply darkness effect for 5 secounds to all surrounding enemys and infect them with void effect
+        3: always deal critical hits to infected targets
+    aerial(wind/air):
+        1: increased knockback
+        2: ability to shoot wind charge(s)
+        3:
+    terrestrial (earth/stone):
+        1: (apply an irreasonable screenshake to the target)
+        2: ability to grab chunks of dirt/stone and shoot them
+        3: deals more damage if your y-pos is lower (like deeper underground = more damage ...)
+    aquatic (water):
+        1: attack faster in water/rain
+        2:
+        3: deal more damage to entitys in water/rain and extra damage the less oxygen the target has
+    chronal (time): (only mb)
+        1:
+        2: ability to slow time down
+        3: small chance to freeze time for one enemy
+
+
+
 
 more:
 - mb custom bosses to obtain some items for strong upgrades or so
@@ -85,3 +122,6 @@ public class LogMineBlockRenderer extends GeoBlockRenderer<LogMineBlockEntity> {
         return LightTexture.pack(bLight, sLight);
     }
 }
+
+
+
