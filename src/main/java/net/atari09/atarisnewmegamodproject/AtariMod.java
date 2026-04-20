@@ -16,6 +16,8 @@ import net.atari09.atarisnewmegamodproject.particle.BismuthParticles;
 import net.atari09.atarisnewmegamodproject.particle.ModParticles;
 import net.atari09.atarisnewmegamodproject.potion.ModPotions;
 import net.atari09.atarisnewmegamodproject.recipe.ModRecipes;
+import net.atari09.atarisnewmegamodproject.screen.ItemClientTooltipComponent;
+import net.atari09.atarisnewmegamodproject.screen.ItemTooltipComponent;
 import net.atari09.atarisnewmegamodproject.screen.ModMenuTypes;
 import net.atari09.atarisnewmegamodproject.screen.custom.GrowthChamberScreen;
 import net.atari09.atarisnewmegamodproject.screen.custom.PedestalScreen;
@@ -32,6 +34,7 @@ import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterClientTooltipComponentFactoriesEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import org.slf4j.Logger;
@@ -184,6 +187,11 @@ public class AtariMod {
         public static void registerScreens(RegisterMenuScreensEvent event){
             event.register(ModMenuTypes.PEDESTAL_MENU.get(), PedestalScreen::new);
             event.register(ModMenuTypes.GROWTH_CHAMBER_MENU.get(), GrowthChamberScreen::new);
+        }
+
+        @SubscribeEvent
+        public static void registerClientTooltipComponents(RegisterClientTooltipComponentFactoriesEvent event){
+            event.register(ItemTooltipComponent.class, ItemClientTooltipComponent::new);
         }
     }
 }

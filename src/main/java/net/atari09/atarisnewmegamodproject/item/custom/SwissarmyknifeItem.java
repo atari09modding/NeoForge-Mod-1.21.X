@@ -1,31 +1,25 @@
 package net.atari09.atarisnewmegamodproject.item.custom;
 
-import com.google.common.collect.Interner;
-import com.google.common.collect.Interners;
 import net.atari09.atarisnewmegamodproject.item.ModItems;
-import net.atari09.atarisnewmegamodproject.item.client.LogMineBlockItemRenderer;
 import net.atari09.atarisnewmegamodproject.item.client.SwissArmyKnifeRenderer;
+import net.atari09.atarisnewmegamodproject.screen.ItemTooltipComponent;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlotGroup;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.tooltip.BundleTooltip;
+import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.BundleContents;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.component.Tool;
-import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.biome.Biomes;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
@@ -38,6 +32,7 @@ import software.bernie.geckolib.util.RenderUtil;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.function.Consumer;
 
 public class SwissarmyknifeItem extends DiggerItem implements GeoItem {
@@ -145,5 +140,17 @@ public class SwissarmyknifeItem extends DiggerItem implements GeoItem {
         }
         setTool(stack, currtool);
         switchcooldown--;
+    }
+
+    @Override
+    public Optional<TooltipComponent> getTooltipImage(ItemStack stack) {
+        Map<Integer, ItemLike> toolmap = Map.of(
+                0, Items.AIR,
+                1, Items.DIAMOND_SWORD,
+                2, Items.DIAMOND_AXE,
+                3, Items.DIAMOND_PICKAXE,
+                4, Items.DIAMOND_SHOVEL);
+
+        return Optional.of(new ItemTooltipComponent(new ItemStack(toolmap.get(currtool))));
     }
 }
