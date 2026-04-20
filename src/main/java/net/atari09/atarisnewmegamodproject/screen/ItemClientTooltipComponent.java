@@ -2,7 +2,9 @@ package net.atari09.atarisnewmegamodproject.screen;
 
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.screens.inventory.tooltip.ClientBundleTooltip;
 import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
 public class ItemClientTooltipComponent implements ClientTooltipComponent {
@@ -26,6 +28,7 @@ public class ItemClientTooltipComponent implements ClientTooltipComponent {
     @Override
     public void renderImage(Font font, int x, int y, GuiGraphics guiGraphics) {
         ClientTooltipComponent.super.renderImage(font, x, y, guiGraphics);
+        guiGraphics.blitSprite(ResourceLocation.withDefaultNamespace("container/bundle/slot"),x, y,18,20);
         guiGraphics.renderItem(stack,x,y);
         guiGraphics.renderItemDecorations(font,stack,x,y);
     }
