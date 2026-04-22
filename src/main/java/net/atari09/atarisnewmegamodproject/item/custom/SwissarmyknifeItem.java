@@ -151,6 +151,6 @@ public class SwissarmyknifeItem extends DiggerItem implements GeoItem {
                 3, Items.DIAMOND_PICKAXE,
                 4, Items.DIAMOND_SHOVEL);
 
-        return Optional.of(new ItemTooltipComponent(new ItemStack(toolmap.get(currtool))));
+        return Optional.of(new ItemTooltipComponent(new ItemStack(toolmap.get(currtool)), true));
     }
 }

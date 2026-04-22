@@ -10,9 +10,11 @@ import net.minecraft.world.item.ItemStack;
 public class ItemClientTooltipComponent implements ClientTooltipComponent {
 
     private final ItemStack stack;
+    private final boolean hasBackgroundSlot;
 
-    public ItemClientTooltipComponent(ItemTooltipComponent data) {
+    public ItemClientTooltipComponent(ItemTooltipComponent data, boolean hasBackgroundSlot) {
         this.stack = data.stack();
+        this.hasBackgroundSlot = data.hasBackgroundSlot();
     }
 
     @Override
@@ -28,7 +30,7 @@ public class ItemClientTooltipComponent implements ClientTooltipComponent {
     @Override
     public void renderImage(Font font, int x, int y, GuiGraphics guiGraphics) {
         ClientTooltipComponent.super.renderImage(font, x, y, guiGraphics);
-        guiGraphics.blitSprite(ResourceLocation.withDefaultNamespace("container/bundle/slot"),x, y,18,20);
+        if(hasBackgroundSlot) guiGraphics.blitSprite(ResourceLocation.withDefaultNamespace("container/bundle/slot"),x, y,18,20);
         guiGraphics.renderItem(stack,x,y);
         guiGraphics.renderItemDecorations(font,stack,x,y);
     }
