@@ -12,7 +12,7 @@ public class ItemClientTooltipComponent implements ClientTooltipComponent {
     private final ItemStack stack;
     private final boolean hasBackgroundSlot;
 
-    public ItemClientTooltipComponent(ItemTooltipComponent data, boolean hasBackgroundSlot) {
+    public ItemClientTooltipComponent(ItemTooltipComponent data) {
         this.stack = data.stack();
         this.hasBackgroundSlot = data.hasBackgroundSlot();
     }
@@ -33,5 +33,6 @@ public class ItemClientTooltipComponent implements ClientTooltipComponent {
         if(hasBackgroundSlot) guiGraphics.blitSprite(ResourceLocation.withDefaultNamespace("container/bundle/slot"),x, y,18,20);
         guiGraphics.renderItem(stack,x,y);
         guiGraphics.renderItemDecorations(font,stack,x,y);
+
     }
 }
