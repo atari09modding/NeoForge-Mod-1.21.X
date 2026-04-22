@@ -45,7 +45,7 @@ armor:
 elements for weapons:
     kryonic (frost):
         1: slows down enemys with frost effect
-        2: special freeze ability attack that creates ice pillars like evoker attack (i i'll find out how to code that) this makes enemys freeze like powder snow
+        2: special freeze ability attack that creates ice pillars like evoker attack (i i'll find out how to code that probl just summon entity that works like evoker fang) this makes enemys freeze like powder snow
         3: deal more damage to players with frost
     inferno/infernal(fire):
         1: ignites enemy
