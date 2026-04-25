@@ -84,6 +84,7 @@ more:
 - mb also important: in ItemStack method get Tooltip lines (and the method add attribute Tooltips)
 - kind of progression trees for weapons and armor
 - the whole thing should be like some weapon system similar to minecraft dungeons
+- JEI compatibility
 
 
 
