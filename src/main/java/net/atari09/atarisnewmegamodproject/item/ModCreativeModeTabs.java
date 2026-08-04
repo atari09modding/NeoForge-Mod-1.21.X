@@ -75,6 +75,8 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModItems.NUCLEARGRENADE);
 
+                        output.accept(ModItems.BAZOOKA);
+
                     })
                     .build());
     public static final Supplier<CreativeModeTab> BISMTUH_BLOCKS_TAB = CREATIVE_MODE_TAB.register("bismuth_blocks_tab",

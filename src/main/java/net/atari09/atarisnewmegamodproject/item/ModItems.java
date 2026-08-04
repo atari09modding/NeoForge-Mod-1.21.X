@@ -14,6 +14,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.PrimedTnt;
@@ -213,6 +214,20 @@ public class ModItems {
 
     public static final DeferredItem<Item> NUCLEARGRENADE = ITEMS.register("nucleargrenade",
             ()->new NuclearGrenadeItem(new Item.Properties().stacksTo(1)));
+
+    public static final DeferredItem<Item> BAZOOKA = ITEMS.register("bazooka",
+            () -> new Item(new Item.Properties().stacksTo(1).food(ModFoodProperties.RADISH).fireResistant()){
+                @Override
+                public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
+
+                    PrimedTnt tnt = new PrimedTnt(EntityType.TNT, level);
+                    tnt.setPos(player.position().add(new Vec3(0,1,0)));
+                    tnt.setDeltaMovement(player.getLookAngle());
+                    level.addFreshEntity(tnt);
+
+                    return super.use(level, player, usedHand);
+                }
+            });
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

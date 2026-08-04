@@ -1,7 +1,6 @@
 package net.atari09.atarisnewmegamodproject.item.custom;
 
 import net.atari09.atarisnewmegamodproject.item.client.JetPackChestPlateRenderer;
-import net.atari09.atarisnewmegamodproject.item.client.SwissArmyKnifeRenderer;
 import net.atari09.atarisnewmegamodproject.util.KeyBinding;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.model.HumanoidModel;

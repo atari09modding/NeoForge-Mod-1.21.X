@@ -20,7 +20,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 
 import java.util.LinkedHashMap;
 
-public class ModItemModelProvider extends ItemModelProvider {
+public class  ModItemModelProvider extends ItemModelProvider {
     private static LinkedHashMap<ResourceKey<TrimMaterial>, Float> trimMaterials = new LinkedHashMap<>();
     static {
         trimMaterials.put(TrimMaterials.QUARTZ, 0.1F);

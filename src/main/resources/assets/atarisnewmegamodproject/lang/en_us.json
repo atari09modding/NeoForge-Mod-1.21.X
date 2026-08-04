@@ -60,6 +60,8 @@
   "item.minecraft.splash_potion.effect.atarisnewmegamodproject_slimey_potion" : "Slimey Splash Potion",
   "item.minecraft.lingering_potion.effect.atarisnewmegamodproject_slimey_potion" : "Slimey Lingering Potion",
 
+  "item.atarisnewmegamodproject.bazooka": "§5Bazooka",
+
   "block.atarisnewmegamodproject.bismuth_block": "Block of Bismuth",
   "block.atarisnewmegamodproject.bismuth_ore": "Bismuth Ore",
   "block.atarisnewmegamodproject.bismuth_deepslate_ore": "Deepslate Bismuth Ore",
