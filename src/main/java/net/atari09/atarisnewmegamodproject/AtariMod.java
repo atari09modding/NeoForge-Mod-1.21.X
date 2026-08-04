@@ -147,7 +147,7 @@ public class AtariMod {
 
     }
 
-    //@EventBusSubscriber(modid = MOD_ID)
+    @EventBusSubscriber(modid = MOD_ID)
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
