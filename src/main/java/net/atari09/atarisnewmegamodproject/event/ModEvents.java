@@ -32,6 +32,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.loot.predicates.WeatherCheck;
 import net.neoforged.bus.api.SubscribeEvent;
 //import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.sound.SoundEvent;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
@@ -48,7 +49,7 @@ import java.util.Set;
 import static org.apache.commons.lang3.BooleanUtils.and;
 
 
-//@EventBusSubscriber(modid = AtariMod.MOD_ID)//, bus = EventBusSubscriber.Bus.GAME)
+@EventBusSubscriber(modid = AtariMod.MOD_ID)//, bus = EventBusSubscriber.Bus.GAME)
 public class ModEvents {
 
     private static final Set<BlockPos> HARVESTED_BLOCKS = new HashSet<>();

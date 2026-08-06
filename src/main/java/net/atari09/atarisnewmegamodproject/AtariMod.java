@@ -12,6 +12,8 @@ import net.atari09.atarisnewmegamodproject.entity.client.*;
 import net.atari09.atarisnewmegamodproject.item.ModCreativeModeTabs;
 import net.atari09.atarisnewmegamodproject.item.ModItems;
 import net.atari09.atarisnewmegamodproject.loot.ModLootModifiers;
+import net.atari09.atarisnewmegamodproject.network.handler.LaunchButtonPressedHandler;
+import net.atari09.atarisnewmegamodproject.network.payload.LaunchButtonPressedPacket;
 import net.atari09.atarisnewmegamodproject.particle.BismuthParticles;
 import net.atari09.atarisnewmegamodproject.particle.ModParticles;
 import net.atari09.atarisnewmegamodproject.potion.ModPotions;
@@ -37,6 +39,8 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterClientTooltipComponentFactoriesEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
+import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
+import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -187,11 +191,19 @@ public class AtariMod {
         public static void registerScreens(RegisterMenuScreensEvent event){
             event.register(ModMenuTypes.PEDESTAL_MENU.get(), PedestalScreen::new);
             event.register(ModMenuTypes.GROWTH_CHAMBER_MENU.get(), GrowthChamberScreen::new);
+
         }
 
         @SubscribeEvent
         public static void registerClientTooltipComponents(RegisterClientTooltipComponentFactoriesEvent event){
             event.register(ItemTooltipComponent.class, ItemClientTooltipComponent::new);
+        }
+
+        @SubscribeEvent
+        public static void registerPayloadHandlers(final RegisterPayloadHandlersEvent event) {
+            final PayloadRegistrar registrar = event.registrar("1");
+            registrar.playToServer(LaunchButtonPressedPacket.TYPE, LaunchButtonPressedPacket.STREAM_CODEC, LaunchButtonPressedHandler::handle);
+
         }
     }
 }

@@ -2,9 +2,12 @@ package net.atari09.atarisnewmegamodproject.item;
 
 import net.atari09.atarisnewmegamodproject.AtariMod;
 import net.atari09.atarisnewmegamodproject.block.ModBlocks;
+import net.atari09.atarisnewmegamodproject.component.ModDataComponents;
 import net.atari09.atarisnewmegamodproject.entity.ModEntities;
 import net.atari09.atarisnewmegamodproject.item.custom.*;
+import net.atari09.atarisnewmegamodproject.screen.custom.DrawableExplosionScreen;
 import net.atari09.atarisnewmegamodproject.sound.ModSounds;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
@@ -14,6 +17,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -227,6 +231,73 @@ public class ModItems {
 
                     return super.use(level, player, usedHand);
                 }
+            });
+
+    public static final DeferredItem<Item> TNTTORNADOROD = ITEMS.register("tnttornadorod",
+            ()-> new Item(new Item.Properties().stacksTo(1)){
+
+
+                @Override
+                public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
+                    if (usedHand.equals(InteractionHand.MAIN_HAND)) {
+                        player.getMainHandItem().set(ModDataComponents.ROT, 1);
+                    }
+
+
+                    return super.use(level, player, usedHand);
+                }
+
+                @Override
+                public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
+                    if (level.isClientSide()) {
+                        return;
+                    }
+                    if(entity instanceof Player player){
+                        int i = 0;
+                        if (player.getMainHandItem().has(ModDataComponents.ROT)) {
+                            i = player.getMainHandItem().get(ModDataComponents.ROT);
+                        }
+
+                            if (i != 0) {
+                                if (i < 360*5) {
+                                    i+=5;
+                                } else {
+                                    i = 0;
+                                }
+                                player.getMainHandItem().set(ModDataComponents.ROT, i);
+                                int strength = i / 360;
+                                strength = (int) Math.ceil(((double) strength+1));
+
+                                PrimedTnt tnt = new PrimedTnt(level,player.getX(),player.getY(),player.getZ(),player);
+                                tnt.setPos(player.position());
+                                Vec3 direction = new Vec3((double) strength /3,1,0);
+
+
+                                direction = direction.yRot((float) Math.toRadians(i));
+
+
+                                tnt.setDeltaMovement(direction);
+                                level.addFreshEntity(tnt);
+                            }
+
+                            super.inventoryTick(stack, level, entity, slotId, isSelected);
+                        }
+                    }
+            });
+
+    public static final DeferredItem<Item> DRAWABLEEXPLOSIONROD = ITEMS.register("drawableexplosionrod",
+            ()-> new Item(new Item.Properties().stacksTo(1)){
+
+
+                @Override
+                public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
+                    if(level.isClientSide){
+                        Minecraft.getInstance().setScreen(new DrawableExplosionScreen(Component.literal("Draw Shape")));
+                    }
+
+                    return super.use(level, player, usedHand);
+                }
+
             });
 
     public static void register(IEventBus eventBus){

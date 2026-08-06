@@ -86,6 +86,8 @@ public class  ModItemModelProvider extends ItemModelProvider {
         handheldItem(ModItems.MSPAINTSWORD);
 
 
+
+
     }
 
     private ItemModelBuilder saplingItem(DeferredBlock<Block> item) {

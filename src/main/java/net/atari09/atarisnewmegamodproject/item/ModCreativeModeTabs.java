@@ -76,6 +76,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.NUCLEARGRENADE);
 
                         output.accept(ModItems.BAZOOKA);
+                        output.accept(ModItems.TNTTORNADOROD);
+                        output.accept(ModItems.DRAWABLEEXPLOSIONROD);
 
                     })
                     .build());

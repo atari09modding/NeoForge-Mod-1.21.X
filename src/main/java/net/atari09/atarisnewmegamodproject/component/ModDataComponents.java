@@ -1,5 +1,6 @@
 package net.atari09.atarisnewmegamodproject.component;
 
+import com.mojang.serialization.Codec;
 import net.atari09.atarisnewmegamodproject.AtariMod;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponentType;
@@ -16,6 +17,9 @@ public class ModDataComponents {
 
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<BlockPos>> COORDINATES = register("coordinates",
             builder -> builder.persistent(BlockPos.CODEC));
+
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> ROT = register("rot",
+            builder -> builder.persistent(Codec.INT));
 
     private static <T>DeferredHolder<DataComponentType<?>, DataComponentType<T>> register(String name,
                                                                                           UnaryOperator<DataComponentType.Builder<T>> builderOperator){

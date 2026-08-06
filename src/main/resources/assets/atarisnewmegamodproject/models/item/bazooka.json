@@ -1,10 +1,10 @@
 {
-	"format_version": "1.21.11",
+	"format_version": "1.21.1",
 	"credit": "Made with Blockbench",
 	"texture_size": [32, 32],
 	"textures": {
-		"0": "block/bazooka",
-		"particle": "block/bazooka"
+		"0": "atarisnewmegamodproject:item/bazooka",
+		"particle": "atarisnewmegamodproject:item/bazooka"
 	},
 	"elements": [
 		{
