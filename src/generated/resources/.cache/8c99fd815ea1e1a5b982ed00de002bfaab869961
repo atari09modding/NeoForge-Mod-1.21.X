@@ -1,5 +1,6 @@
-// 1.21.1	2026-01-25T15:47:32.0882684	Tags for minecraft:item mod id atarisnewmegamodproject
+// 1.21.1	2026-08-06T17:23:02.4360119	Tags for minecraft:item mod id atarisnewmegamodproject
 d0b3f441d66ba56d14df50380ad8a0dedb6d4e1e data/atarisnewmegamodproject/tags/item/transformable_items.json
+fdab8ddd5529ae14b26bc1853b004131135318a4 data/curios/tags/item/ring.json
 4243ca86cfbdb889069010e7320e79bb0b69a62d data/minecraft/tags/item/axes.json
 a93004372b3c4deefe2c12f286cd53e3d590b3eb data/minecraft/tags/item/enchantable/mace.json
 99cf5bea49ed0e5928c57e0dde48d46914f4ad23 data/minecraft/tags/item/hoes.json

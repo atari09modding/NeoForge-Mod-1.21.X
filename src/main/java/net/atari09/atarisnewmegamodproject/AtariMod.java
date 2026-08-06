@@ -11,6 +11,7 @@ import net.atari09.atarisnewmegamodproject.entity.ModEntities;
 import net.atari09.atarisnewmegamodproject.entity.client.*;
 import net.atari09.atarisnewmegamodproject.item.ModCreativeModeTabs;
 import net.atari09.atarisnewmegamodproject.item.ModItems;
+import net.atari09.atarisnewmegamodproject.item.client.RingCurioRenderer;
 import net.atari09.atarisnewmegamodproject.loot.ModLootModifiers;
 import net.atari09.atarisnewmegamodproject.network.handler.LaunchButtonPressedHandler;
 import net.atari09.atarisnewmegamodproject.network.payload.LaunchButtonPressedPacket;
@@ -33,6 +34,7 @@ import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Items;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
@@ -55,6 +57,7 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import software.bernie.geckolib.GeckoLib;
 import terrablender.api.SurfaceRuleManager;
+import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
@@ -167,6 +170,7 @@ public class AtariMod {
             EntityRenderers.register(ModEntities.PIRANHA.get(), PiranhaRenderer::new);
             EntityRenderers.register(ModEntities.DRAGONFLY.get(), DragonflyRenderer::new);
 
+            CuriosRendererRegistry.register(Items.DIAMOND, RingCurioRenderer::new);
         }
 
         @SubscribeEvent
@@ -205,5 +209,7 @@ public class AtariMod {
             registrar.playToServer(LaunchButtonPressedPacket.TYPE, LaunchButtonPressedPacket.STREAM_CODEC, LaunchButtonPressedHandler::handle);
 
         }
+
+
     }
 }

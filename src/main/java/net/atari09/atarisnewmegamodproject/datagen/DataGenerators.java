@@ -50,5 +50,10 @@ public class DataGenerators {
 
         generator.addProvider(event.includeServer(), new ModDatapackProvider(packOutput, lookupProvider));
         generator.addProvider(event.includeServer(), new ModGlobalLootModifierProvider(packOutput, lookupProvider));
+
+        generator.addProvider(event.includeServer(),new ModAdvancementProvider(packOutput,lookupProvider,existingFileHelper,List.of(new ModAdvancementProvider.ModAdvancements())));
+
+        //only if using curious API
+        generator.addProvider(event.includeServer(), new CuriosTestProvider(AtariMod.MOD_ID,packOutput,existingFileHelper,lookupProvider));
     }
 }

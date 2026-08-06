@@ -15,6 +15,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
+import top.theillusivec4.curios.api.CuriosTags;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -71,6 +72,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
         this.tag(ItemTags.MACE_ENCHANTABLE)
                 .add(ModItems.MAGMA_MACE.get());
+
+        tag(CuriosTags.RING).add(Items.DIAMOND);
     }
 
 }
