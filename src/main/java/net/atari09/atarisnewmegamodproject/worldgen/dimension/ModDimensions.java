@@ -2,6 +2,8 @@ package net.atari09.atarisnewmegamodproject.worldgen.dimension;
 
 import net.atari09.atarisnewmegamodproject.AtariMod;
 import net.atari09.atarisnewmegamodproject.worldgen.biome.ModBiomes;
+import net.atari09.atarisnewmegamodproject.worldgen.chunkgen.AtariChunkGenerator;
+import net.atari09.atarisnewmegamodproject.worldgen.chunkgen.CanyonChunkGenerator;
 import net.atari09.atarisnewmegamodproject.worldgen.noise.ModNoiseGeneratorSettings;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -25,12 +27,55 @@ import java.util.OptionalLong;
 
 public class ModDimensions {
     public static final ResourceKey<LevelStem> ATARIDIM_KEY = ResourceKey.create(Registries.LEVEL_STEM, AtariMod.res("ataridim"));
+    public static final ResourceKey<LevelStem> ATARIDIM2_KEY = ResourceKey.create(Registries.LEVEL_STEM, AtariMod.res("ataridim2"));
+    public static final ResourceKey<LevelStem> CANYONS_KEY = ResourceKey.create(Registries.LEVEL_STEM, AtariMod.res("canyons"));
+
     public static final ResourceKey<Level> ATARIDIM_LEVEL_KEY = ResourceKey.create(Registries.DIMENSION, AtariMod.res("ataridim"));
+    public static final ResourceKey<Level> ATARIDIM2_LEVEL_KEY = ResourceKey.create(Registries.DIMENSION, AtariMod.res("ataridim2"));
+    public static final ResourceKey<Level> CANYONS_LEVEL_KEY = ResourceKey.create(Registries.DIMENSION, AtariMod.res("canyons"));
+
     public static final ResourceKey<DimensionType> ATARIDIM_TYPE = ResourceKey.create(Registries.DIMENSION_TYPE, AtariMod.res("ataridim_type"));
+    public static final ResourceKey<DimensionType> ATARIDIM2_TYPE = ResourceKey.create(Registries.DIMENSION_TYPE, AtariMod.res("ataridim2_type"));
+    public static final ResourceKey<DimensionType> CANYONS_TYPE = ResourceKey.create(Registries.DIMENSION_TYPE, AtariMod.res("canyons_type"));
 
 
     public static void bootstrapType(BootstrapContext<DimensionType> context) {
         context.register(ATARIDIM_TYPE, new DimensionType(
+                OptionalLong.of(12000), // fixedTime
+                false, // hasSkylight
+                false, // hasCeiling
+                false, // ultraWarm
+                false, // natural
+                1.0, // coordinateScale
+                true, // bedWorks
+                false, // respawnAnchorWorks
+                0, // minY
+                256, // height
+                256, // logicalHeight
+                BlockTags.INFINIBURN_OVERWORLD, // infiniburn
+                BuiltinDimensionTypes.OVERWORLD_EFFECTS, // effectsLocation
+                1.0f, // ambientLight
+                new DimensionType.MonsterSettings(false, false, ConstantInt.of(0), 0)));
+
+
+        context.register(ATARIDIM2_TYPE, new DimensionType(
+                OptionalLong.of(12000), // fixedTime
+                false, // hasSkylight
+                false, // hasCeiling
+                false, // ultraWarm
+                false, // natural
+                1.0, // coordinateScale
+                true, // bedWorks
+                false, // respawnAnchorWorks
+                0, // minY
+                256, // height
+                256, // logicalHeight
+                BlockTags.INFINIBURN_OVERWORLD, // infiniburn
+                BuiltinDimensionTypes.OVERWORLD_EFFECTS, // effectsLocation
+                1.0f, // ambientLight
+                new DimensionType.MonsterSettings(false, false, ConstantInt.of(0), 0)));
+
+        context.register(CANYONS_TYPE, new DimensionType(
                 OptionalLong.of(12000), // fixedTime
                 false, // hasSkylight
                 false, // hasCeiling
@@ -87,8 +132,36 @@ public class ModDimensions {
                         ))),
                 noiseGenSettings.getOrThrow(NoiseGeneratorSettings.FLOATING_ISLANDS));//play around with that!
 
+        AtariChunkGenerator atarichunkgenerator = new AtariChunkGenerator(
+                MultiNoiseBiomeSource.createFromList(
+                    new Climate.ParameterList<>(List.of(Pair.of(
+                            Climate.parameters(0.0F, -0.2F, 0.4F, 0.0F, 0.0F, 0.0F, 0.0F), biomeRegistry.getOrThrow(ModBiomes.TEST_BIOME)),
+                    Pair.of(
+                            Climate.parameters(0.1F, 0.2F, 0.2F, 0.2F, 0.0F, 0.0F, 0.1F), biomeRegistry.getOrThrow(Biomes.BIRCH_FOREST)),
+                    Pair.of(
+                            Climate.parameters(0.3F, 0.6F, -0.1F, 0.1F, 0.0F, 0.0F, 0.0F), biomeRegistry.getOrThrow(Biomes.OCEAN)),
+                    Pair.of(
+                            Climate.parameters(0.4F, 0.3F, 0.2F, 0.1F, 0.0F, 0.2F, 0.0F), biomeRegistry.getOrThrow(Biomes.DARK_FOREST))))),
+                noiseGenSettings.getOrThrow(NoiseGeneratorSettings.OVERWORLD));
+
+        CanyonChunkGenerator canyonChunkGenerator = new CanyonChunkGenerator(
+                new FixedBiomeSource(biomeRegistry.getOrThrow(Biomes.BADLANDS)),
+                noiseGenSettings.getOrThrow(NoiseGeneratorSettings.OVERWORLD));
+
+
+
+
+
+
+
         LevelStem stem_ataridim = new LevelStem(dimTypes.getOrThrow(ModDimensions.ATARIDIM_TYPE), noiseBasedChunkGenerator_floating_islands );
 
+        LevelStem stem_ataridim2 = new LevelStem(dimTypes.getOrThrow(ModDimensions.ATARIDIM2_TYPE), atarichunkgenerator );
+
+        LevelStem stem_canyons = new LevelStem(dimTypes.getOrThrow(ModDimensions.CANYONS_TYPE), canyonChunkGenerator );
+
         context.register(ATARIDIM_KEY, stem_ataridim);
+        context.register(ATARIDIM2_KEY, stem_ataridim2);
+        context.register(CANYONS_KEY, stem_canyons);
     }
 }

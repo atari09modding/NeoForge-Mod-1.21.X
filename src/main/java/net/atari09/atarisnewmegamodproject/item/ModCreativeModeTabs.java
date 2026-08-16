@@ -123,6 +123,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.LOGMINE_BLOCK_ITEM);
 
                         output.accept(ModBlocks.MODPORTAL);
+                        output.accept(ModBlocks.MODPORTAL2);
+                        output.accept(ModBlocks.CANYONSPORTAL);
 
                     })
                     .build());

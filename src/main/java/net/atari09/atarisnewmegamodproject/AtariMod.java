@@ -29,6 +29,7 @@ import net.atari09.atarisnewmegamodproject.util.ModItemProperties;
 import net.atari09.atarisnewmegamodproject.villager.ModVillagers;
 import net.atari09.atarisnewmegamodproject.worldgen.biome.ModTerrablender;
 import net.atari09.atarisnewmegamodproject.worldgen.biome.surface.ModSurfaceRules;
+import net.atari09.atarisnewmegamodproject.worldgen.chunkgen.ModChunkGenerators;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ItemRenderer;
@@ -117,6 +118,8 @@ public class AtariMod {
         ModRecipes.register(modEventBus);
 
         ModTerrablender.registerBiomes();
+
+        ModChunkGenerators.register(modEventBus);
 
         //custom structures: https://www.youtube.com/watch?v=MDWb4Z7vxfw&t=428s
         //  https://www.youtube.com/watch?v=gRCrb-_n-zE&list=PLKGarocXCE1HrC60yuTNTGRoZc6hf5Uvl&index=38

@@ -3,6 +3,7 @@ package net.atari09.atarisnewmegamodproject.block.custom;
 import net.atari09.atarisnewmegamodproject.block.ModBlocks;
 import net.atari09.atarisnewmegamodproject.worldgen.dimension.ModDimensions;
 import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
@@ -20,8 +21,12 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 
 public class ModPortalBlock extends Block {
-    public ModPortalBlock(Properties properties) {
+
+    private final ResourceKey<Level> key;
+
+    public ModPortalBlock(Properties properties, ResourceKey<Level> key) {
         super(properties);
+        this.key = key;
     }
 
 
@@ -30,7 +35,7 @@ public class ModPortalBlock extends Block {
         if (!(player instanceof ServerPlayer serverPlayer)) {
             return InteractionResult.FAIL;
         }
-        ServerLevel targetLevel = serverPlayer.server.getLevel(ModDimensions.ATARIDIM_LEVEL_KEY);
+        ServerLevel targetLevel = serverPlayer.server.getLevel(key);
         if (targetLevel ==null){
             return InteractionResult.FAIL;
         }
@@ -75,7 +80,7 @@ public class ModPortalBlock extends Block {
         if (!(player instanceof ServerPlayer serverPlayer)) {
             return ItemInteractionResult.FAIL;
         }
-        ServerLevel targetLevel = serverPlayer.server.getLevel(ModDimensions.ATARIDIM_LEVEL_KEY);
+        ServerLevel targetLevel = serverPlayer.server.getLevel(key);
         if (targetLevel ==null){
             return ItemInteractionResult.FAIL;
         }

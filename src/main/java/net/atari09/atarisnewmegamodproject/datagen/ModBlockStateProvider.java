@@ -80,6 +80,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         blockWithItem(ModBlocks.GROWTH_CHAMBER);
         blockWithItem(ModBlocks.MODPORTAL);
+        blockWithItem(ModBlocks.MODPORTAL2);
+        blockWithItem(ModBlocks.CANYONSPORTAL);
     }
 
     private void saplingBlock(DeferredBlock<Block> blockRegistryObject) {

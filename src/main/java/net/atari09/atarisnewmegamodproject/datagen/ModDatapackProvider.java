@@ -8,6 +8,7 @@ import net.atari09.atarisnewmegamodproject.worldgen.ModBiomeModifiers;
 import net.atari09.atarisnewmegamodproject.worldgen.ModConfiguredFeatures;
 import net.atari09.atarisnewmegamodproject.worldgen.ModPlacedFeatures;
 import net.atari09.atarisnewmegamodproject.worldgen.biome.ModBiomes;
+import net.atari09.atarisnewmegamodproject.worldgen.chunkgen.ModChunkGenerators;
 import net.atari09.atarisnewmegamodproject.worldgen.dimension.ModDimensions;
 import net.atari09.atarisnewmegamodproject.worldgen.noise.ModNoiseGeneratorSettings;
 import net.atari09.atarisnewmegamodproject.worldgen.noise.ModNoiseRouterData;

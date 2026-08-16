@@ -4,6 +4,7 @@ import net.atari09.atarisnewmegamodproject.AtariMod;
 import net.atari09.atarisnewmegamodproject.block.custom.*;
 import net.atari09.atarisnewmegamodproject.item.ModItems;
 import net.atari09.atarisnewmegamodproject.sound.ModSounds;
+import net.atari09.atarisnewmegamodproject.worldgen.dimension.ModDimensions;
 import net.atari09.atarisnewmegamodproject.worldgen.tree.ModTreeGrowers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -163,7 +164,13 @@ public class ModBlocks {
             ()->new LogMineBlock(BlockBehaviour.Properties.of().noOcclusion().strength(2f,100f),6));
 
     public static final DeferredBlock<Block> MODPORTAL = registerBlock("modportal",
-            ()->new ModPortalBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noOcclusion().noLootTable()));
+            ()->new ModPortalBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noOcclusion(), ModDimensions.ATARIDIM_LEVEL_KEY));
+
+    public static final DeferredBlock<Block> MODPORTAL2 = registerBlock("modportal2",
+            ()->new ModPortalBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noOcclusion(), ModDimensions.ATARIDIM2_LEVEL_KEY));
+
+    public static final DeferredBlock<Block> CANYONSPORTAL = registerBlock("canyonsportal",
+            ()->new ModPortalBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noOcclusion(), ModDimensions.CANYONS_LEVEL_KEY));
 
 
 
