@@ -19,6 +19,7 @@ import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.function.Supplier;
@@ -172,7 +173,8 @@ public class ModBlocks {
     public static final DeferredBlock<Block> CANYONSPORTAL = registerBlock("canyonsportal",
             ()->new ModPortalBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noOcclusion(), ModDimensions.CANYONS_LEVEL_KEY));
 
-
+    public static final DeferredBlock<Block> BISMUTH_CHAIN = registerBlock("bismuth_chain",
+            ()->new ChainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHAIN)));
 
 
     private static <T extends Block> DeferredBlock registerBlock(String name, Supplier<T> block) {

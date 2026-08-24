@@ -27,6 +27,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.ChainBlock;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.IEventBus;
@@ -299,6 +300,7 @@ public class ModItems {
                 }
 
             });
+
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
