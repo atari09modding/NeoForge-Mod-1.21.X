@@ -2,6 +2,7 @@ package net.atari09.atarisnewmegamodproject.block.entity;
 
 import net.atari09.atarisnewmegamodproject.AtariMod;
 import net.atari09.atarisnewmegamodproject.block.ModBlocks;
+import net.atari09.atarisnewmegamodproject.block.custom.ExperimentalCustomRenderingBlock;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
@@ -45,6 +46,10 @@ public class ModBlockEntities {
     public static final Supplier<BlockEntityType<LogMineBlockEntity>> LOGMINE_BE_DARKOAK =
             BLOCK_ENTITIES.register("logmine_be_darkoak",()->BlockEntityType.Builder.of(
                     (pos,state) -> new LogMineBlockEntity(pos,state,1), ModBlocks.LOGMINE_DARKOAK.get()).build(null));
+
+    public static final Supplier<BlockEntityType<ExperimentalCustomRenderingBlockEntity>> EXPERIMENTAL_CUSTOMRENDERING_BE =
+            BLOCK_ENTITIES.register("experimental_customrendering_be",()->BlockEntityType.Builder.of(
+                    ExperimentalCustomRenderingBlockEntity::new, ModBlocks.EXPERIMENTAL_CUSTOMRENDERING_BLOCK.get()).build(null));
 
 
     public static void register(IEventBus eventBus){

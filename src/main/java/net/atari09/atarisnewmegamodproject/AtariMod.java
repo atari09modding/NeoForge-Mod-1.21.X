@@ -3,6 +3,7 @@ package net.atari09.atarisnewmegamodproject;
 import net.atari09.atarisnewmegamodproject.block.ModBlocks;
 import net.atari09.atarisnewmegamodproject.block.client.LogMineBlockRenderer;
 import net.atari09.atarisnewmegamodproject.block.entity.ModBlockEntities;
+import net.atari09.atarisnewmegamodproject.block.entity.renderer.ExperimentalCustomRenderingBlockEntityRenderer;
 import net.atari09.atarisnewmegamodproject.block.entity.renderer.PedestalBlockEntityRenderer;
 import net.atari09.atarisnewmegamodproject.component.ModDataComponents;
 import net.atari09.atarisnewmegamodproject.effect.ModEffects;
@@ -192,6 +193,9 @@ public class AtariMod {
             event.registerBlockEntityRenderer(ModBlockEntities.LOGMINE_BE_MANGROVE.get(), context -> new LogMineBlockRenderer(context, 5));
             event.registerBlockEntityRenderer(ModBlockEntities.LOGMINE_BE_JUNGLE.get(), context -> new LogMineBlockRenderer(context, 6));
             event.registerBlockEntityRenderer(ModBlockEntities.LOGMINE_BE_ACACIA.get(), context -> new LogMineBlockRenderer(context, 7));
+
+            event.registerBlockEntityRenderer(ModBlockEntities.EXPERIMENTAL_CUSTOMRENDERING_BE.get(), ExperimentalCustomRenderingBlockEntityRenderer::new);
+
         }
 
         @SubscribeEvent

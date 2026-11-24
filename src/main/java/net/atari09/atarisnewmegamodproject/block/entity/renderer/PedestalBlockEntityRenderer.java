@@ -18,7 +18,6 @@ import net.minecraft.world.level.LightLayer;
 
 public class PedestalBlockEntityRenderer implements BlockEntityRenderer<PedestalBlockEntity> {
     public PedestalBlockEntityRenderer(BlockEntityRendererProvider.Context context){
-
     }
 
     @Override

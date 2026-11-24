@@ -125,6 +125,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.MODPORTAL);
                         output.accept(ModBlocks.MODPORTAL2);
                         output.accept(ModBlocks.CANYONSPORTAL);
+                        output.accept(ModBlocks.EXPERIMENTAL_CUSTOMRENDERING_BLOCK);
 
                     })
                     .build());

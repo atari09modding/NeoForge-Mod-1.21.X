@@ -176,6 +176,9 @@ public class ModBlocks {
     public static final DeferredBlock<Block> BISMUTH_CHAIN = registerBlock("bismuth_chain",
             ()->new ChainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHAIN)));
 
+    public static final DeferredBlock<Block> EXPERIMENTAL_CUSTOMRENDERING_BLOCK = registerBlock("experimental_customrendering_block",
+            ()-> new ExperimentalCustomRenderingBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noLootTable()));
+
 
     private static <T extends Block> DeferredBlock registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
